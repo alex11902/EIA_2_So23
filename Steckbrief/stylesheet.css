@@ -1,3 +1,13 @@
+body {
+     font-family: arial;
+     font-size: small;
+      background: #cbfaf4;
+border-radius: 5px;
+border-color: #3bf7de;
+border-style: solid;
+border-width: 6px;
+padding: 10px;
+}
 .glow { font-family: Verdana, Geneva, Tahoma, sans-serif;
         color: #4a0a9856;
         -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -17,3 +27,52 @@
       h1{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       };
+
+.rainbow{
+  background-color: #343A40;
+  border-radius: 4px;  
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+  
+}
+
+.rainbow-5:hover{
+   background-image:     linear-gradient(
+      to right, 
+      #E7484F,
+      #E7484F 16.65%,
+      #F68B1D 16.65%,
+      #F68B1D 33.3%,
+      #FCED00 33.3%,
+      #FCED00 49.95%,
+      #009E4F 49.95%,
+      #009E4F 66.6%,
+      #00AAC3 66.6%,
+      #00AAC3 83.25%,
+      #732982 83.25%,
+      #732982 100%,
+      #E7484F 100%
+     
+     
+     
+    );
+  animation:slidebg 2s linear infinite;
+}
+
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
+button{
+  color: #ae19ab56;
+  background-color: #5ce4fcfb;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+

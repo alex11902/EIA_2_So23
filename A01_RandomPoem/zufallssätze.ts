@@ -5,37 +5,37 @@ Matrikel: <271343>
 Datum: <22.03.2023>
 Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
 */
-namespace Zufallsgedicht {
+namespace Randompoem {
 
 /* Array mit zufallswörtern */ 
-let subjekt: string [] = ["Dobby", "Sauron", "Gargamel", "The Witcher", "Das Spaghettimonster", "Luzifer", "Arthur", "Nemo", "Hermine", "Die Wache"];
-let praedikat: string [] = ["bekommt", "verliert", "kocht", "tötet", "unterwirft", "trinkt", "trifft", "rettet", "schikaniert", "pickst"];
-let objekt: string [] =  ["die Socke", "den Ring,sie zu knechten", "Schlümpfe", "Monster", "Gott", "Tee", "die Tafelrunde", "Dori", "Ron", "einen Pfeil ins Knie"];
+let subject: string [] = ["Dobby", "Sauron", "Gargamel", "The Witcher", "Das Spaghettimonster", "Luzifer", "Arthur", "Nemo", "Hermine", "Die Wache"];
+let predicate: string [] = ["bekommt", "verliert", "kocht", "tötet", "unterwirft", "trinkt", "trifft", "rettet", "schikaniert", "pickst"];
+let object: string [] =  ["die Socke", "den Ring,sie zu knechten", "Schlümpfe", "Monster", "Gott", "Tee", "die Tafelrunde", "Dori", "Ron", "einen Pfeil ins Knie"];
 
 //console.log ("Hello? pls sent help");
 //console.log(subjekt, praedikat, objekt);
 
 /* for-schleife*/ 
-for (let index: number = subjekt.length; index >= 1; index--) {
-    let poemRandom: string = getVerse (subjekt, praedikat, objekt);
+for (let index: number = subject.length; index >= 1; index--) {
+    let poemRandom: string = getVerse (subject, predicate, object);
 
     console.log(poemRandom); 
     
 }
 
 /* get-verse Funktion*/
-function getVerse (_subjekt: string[], _praedikat: string[], _objekt: string[]): string 
+function getVerse (_subject: string[], _predicate: string[], _object: string[]): string 
 {  
-    let subjektString: number = Math.floor(Math.random() * _subjekt.length);
-    let praedikatString: number = Math.floor(Math.random() * _praedikat.length);
-    let objektString: number = Math.floor(Math.random() * _objekt.length);
+    let subjectString: number = Math.floor(Math.random() * _subject.length);
+    let predicateString: number = Math.floor(Math.random() * _predicate.length);
+    let objectString: number = Math.floor(Math.random() * _object.length);
 
     //console.log("Liest das jmd?");
 
-    let randomVerse: string = _subjekt[ subjektString] + " " + _praedikat[praedikatString] + " " + _objekt[objektString];
+    let randomVerse: string = _subject[ subjectString] + " " + _predicate[predicateString] + " " + _object[objectString];
     //console.log(randomVerse);
 
-    _subjekt.splice(subjektString, 1); _praedikat.splice(praedikatString, 1); _objekt.splice(objektString, 1); 
+    _subject.splice(subjectString, 1); _predicate.splice(predicateString, 1); _object.splice(objectString, 1); 
 
     return randomVerse;
 }

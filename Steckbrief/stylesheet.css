@@ -1,9 +1,9 @@
 body {
      font-family: arial;
      font-size: small;
-      background: #cbfaf4;
+      background: #91c4ff;
 border-radius: 5px;
-border-color: #3bf7de;
+border-color: #773bf7;
 border-style: solid;
 border-width: 6px;
 padding: 10px;
@@ -18,10 +18,10 @@ padding: 10px;
       
       @-webkit-keyframes glow {
         from {
-          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00e6c0, 0 0 40px #03d4d0, 0 0 50px #004de6, 0 0 60px #0049e6, 0 0 70px #6000e6;
         }
         to {
-          text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+          text-shadow: 0 0 20px #fcfffc, 0 0 30px #ffffff, 0 0 40px #a2ffb6, 0 0 50px #7efa78, 0 0 60px #4dff68, 0 0 70px #49fb49, 0 0 80px #01f836;
         }
       }   
       h1{
@@ -29,9 +29,9 @@ padding: 10px;
       };
 
 .rainbow{
-  background-color: #343A40;
+  background-color: #00085d;
   border-radius: 4px;  
-  color: #fff;
+  color: #5d00ff;
   cursor: pointer;
   padding: 8px 16px;
   
@@ -68,11 +68,14 @@ padding: 10px;
 }
 
 button{
-  color: #ae19ab56;
+  border-color: #a0a7f7;
+  color: #ae19ab;
   background-color: #5ce4fcfb;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 6px;
   border-radius: 10px;
+  margin: 4px;
+  width: 180px;
 }
 
 

@@ -1,0 +1,44 @@
+h1{font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aquamarine;
+    text-align: center;
+
+}
+body{
+    background-color: blue;
+}
+div{
+    width: 700px;
+    height: 400px;
+    border-radius: 5px;
+    margin: 10px;
+    float: left;
+}
+#div0{
+background-color: rgb(255, 122, 206);
+margin-left: 8%;
+}
+#div1{
+background-color: rgb(124, 255, 255);
+}
+
+span{
+    position: fixed;
+    offset: right, below ;
+    width: 160px ;
+    height: 100px;
+    background: bisque;
+    padding: 5px;
+    border-radius: 3px;
+}
+button{
+    padding: 10px;
+    margin-top: 24%;
+    margin-left: 30%;
+    background-color:blueviolet ;
+    color: antiquewhite;
+    border-radius: 5px;
+}
+button:hover{
+    background-color:rgb(205, 0, 0) ;
+
+}

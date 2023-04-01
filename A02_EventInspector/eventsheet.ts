@@ -15,6 +15,7 @@ window.addEventListener("load", handleLoad);
 function handleLoad(): void {
     let div0: HTMLElement = <HTMLElement>document.querySelector("div0");
     let div1: HTMLElement = <HTMLElement>document.querySelector("div1");
+    let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
 /* install mousemove*/
     document.addEventListener("mousemove", setInfoBox);
 /* click*/
@@ -22,6 +23,7 @@ function handleLoad(): void {
     document.body.addEventListener("click", logInfo);
     div0.addEventListener("click", logInfo);
     div1.addEventListener("click", logInfo);
+    button.addEventListener("click", customEvent);
 /* keyup*/
     document.addEventListener("keyup", logInfo);
     document.body.addEventListener("keyup", logInfo);
@@ -50,8 +52,17 @@ span.style.top = (offsetY) + "px";
 }
 function logInfo(_event: Event): void {
 console.log (_event);
-console.log (_event.target);
-console.log (_event.currentTarget);
+console.log("Current Target:" + _event.currentTarget);
+console.log("Target" + _event.target);
 
+}
+function customEvent(_event: Event): void {
+
+    /* neues Custom-Event wird erzeugt*/
+    let event: CustomEvent = new CustomEvent("customEvent");
+    let button: HTMLElement = <HTMLElement>document.querySelector("button");
+    button.dispatchEvent(event);
+
+    console.log(customEvent, "Button clicked");
 }
 }

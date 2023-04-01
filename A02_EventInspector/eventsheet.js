@@ -14,6 +14,7 @@ var EventInspector;
     function handleLoad() {
         let div0 = document.querySelector("div0");
         let div1 = document.querySelector("div1");
+        let button = document.querySelector("button");
         /* install mousemove*/
         document.addEventListener("mousemove", setInfoBox);
         /* click*/
@@ -21,6 +22,7 @@ var EventInspector;
         document.body.addEventListener("click", logInfo);
         div0.addEventListener("click", logInfo);
         div1.addEventListener("click", logInfo);
+        button.addEventListener("click", customEvent);
         /* keyup*/
         document.addEventListener("keyup", logInfo);
         document.body.addEventListener("keyup", logInfo);
@@ -41,8 +43,15 @@ var EventInspector;
     }
     function logInfo(_event) {
         console.log(_event);
-        console.log(_event.target);
-        console.log(_event.currentTarget);
+        console.log("Current Target:" + _event.currentTarget);
+        console.log("Target" + _event.target);
+    }
+    function customEvent(_event) {
+        /* neues Custom-Event wird erzeugt*/
+        let event = new CustomEvent("customEvent");
+        let button = document.querySelector("button");
+        button.dispatchEvent(event);
+        console.log(customEvent, "Button clicked");
     }
 })(EventInspector || (EventInspector = {}));
 //# sourceMappingURL=eventsheet.js.map

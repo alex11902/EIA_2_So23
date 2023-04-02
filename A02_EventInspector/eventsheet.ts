@@ -13,17 +13,20 @@ window.addEventListener("load", handleLoad);
 
 /* install listener on document, body, divs*/
 function handleLoad(): void {
-    let div0: HTMLElement = <HTMLElement>document.querySelector("div0");
-    let div1: HTMLElement = <HTMLElement>document.querySelector("div1");
+    let div0: HTMLElement = <HTMLElement>document.getElementById("div0");
+    let div1: HTMLElement = <HTMLElement>document.getElementById("div1");
     let button: HTMLButtonElement = <HTMLButtonElement>document.querySelector("button");
-/* install mousemove*/
+   
+ /* install mousemove*/
     document.addEventListener("mousemove", setInfoBox);
 /* click*/
     document.addEventListener("click", logInfo);
     document.body.addEventListener("click", logInfo);
     div0.addEventListener("click", logInfo);
     div1.addEventListener("click", logInfo);
+/*customEvent */
     button.addEventListener("click", customEvent);
+    document.addEventListener("CustomEvent", triggercustomEvent);
 /* keyup*/
     document.addEventListener("keyup", logInfo);
     document.body.addEventListener("keyup", logInfo);
@@ -58,11 +61,14 @@ console.log("Target" + _event.target);
 }
 function customEvent(_event: Event): void {
 
-    /* neues Custom-Event wird erzeugt*/
+/* neues Custom-Event wird erzeugt*/
     let event: CustomEvent = new CustomEvent("customEvent");
     let button: HTMLElement = <HTMLElement>document.querySelector("button");
     button.dispatchEvent(event);
 
-    console.log(customEvent, "Button clicked");
+    
+}
+function triggercustomEvent(_event:Event) {
+    console.log(_event, "Button clicked"); 
 }
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-App-Household</title>
+    <script src="eventsheet.js"></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+    <h1> To-Do-App for Household</h1>
+    <h2>Keep your household *sparkle* clean!</h2>
+        <div id="form">
+            <input type="text" placeholder="task"><datalist id=" Aufgaben"></datalist>
+            <input type="datetime" placeholder="until">
+            <input type="text" placeholder="name of choosen person"><select id="name"></select>
+            <input type="text" title="comment" placeholder="comment">
+            <i id="add" type="button" class="fas fa-plus-square"></i>
+        </div>  
+        <div id="testtext">
+            <p>Küche putzen</p>
+            <p>bis: 12.04, 15Uhr</p>
+            <p>David</p>
+            <p>Du faule Sau! mach auch mal!</p>
+            <label for="file">Task progress:</label>
+            <progress id="file" value="0.7"></progress>
+            <br>
+            <input id="checkbox" type="checkbox">
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash"></i>
+        </div>
+        <div id="testtext2">
+            <p>Bad</p>
+            <p>bis: 10.04, 11Uhr</p>
+            <p>Mia</p>
+            <p>boden putzen</p>
+            <p id="taskexpired">Task not completed!</p>
+            <br>
+            <input id="checkbox" type="checkbox">
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash"></i>
+        </div>
+</body>
+<footer>
+<a href="ui_usecase_household.pdf">UI und Use-case_diagram</a>
+</footer>
+</html>

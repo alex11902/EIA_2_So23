@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do-App-Household</title>
-    <script src="eventsheet.js"></script>
+    <script src="managetasks.js"></script>
+    <script src="datastructure.js"></script>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
@@ -13,23 +14,27 @@
     <h1> To-Do-App for Household</h1>
     <h2>Keep your household *sparkle* clean!</h2>
         <div id="form">
-            <input type="text" placeholder="task"><datalist id=" Aufgaben"></datalist>
-            <input type="datetime" placeholder="until">
+            <input type="text" placeholder="task"><datalist id=" task"></datalist>
+            <input type="datetime" placeholder="until" id="datetime">
             <input type="text" placeholder="name of choosen person"><select id="name"></select>
-            <input type="text" title="comment" placeholder="comment">
-            <i id="add" type="button" class="fas fa-plus-square"></i>
+            <input type="text" title="comment" placeholder="comment" id="writecomment">
+            <button><i id="add"class="fas fa-plus-square"></i></button>
         </div>  
         <div id="testtext">
             <p>Küche putzen</p>
             <p>bis: 12.04, 15Uhr</p>
             <p>David</p>
             <p>Du faule Sau! mach auch mal!</p>
-            <label for="file">Task progress:</label>
-            <progress id="file" value="0.7"></progress>
+            <input type="radio" id="notonedit"></input>
+            <label for="notonedit">Nicht in Bearbeitung</label>
+            <input type="radio" id="onedit"></input>
+            <label for="onedit">In Bearbeitung</label>
+            <input type="radio" id="finished"></input>
+            <label for="finished">Erledigt</label>
             <br>
             <input id="checkbox" type="checkbox">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+            <button><i id="edit" class="fas fa-edit"></i></button>
+            <button><i id="delete" class="fas fa-trash"></i></button>
         </div>
         <div id="testtext2">
             <p>Bad</p>
@@ -39,8 +44,8 @@
             <p id="taskexpired">Task not completed!</p>
             <br>
             <input id="checkbox" type="checkbox">
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
+            <button><i id="edit" class="fas fa-edit"></i></button>
+            <button><i id="delete" class="fas fa-trash"></i></button>
         </div>
 </body>
 <footer>

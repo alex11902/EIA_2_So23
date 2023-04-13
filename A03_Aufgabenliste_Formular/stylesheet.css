@@ -23,7 +23,7 @@ p{
 label{  
     margin-top: 0%;
     margin-bottom: 0%;
-    margin-left: 3%;
+    margin-left: 1%;
 }
 #taskexpired{
     font-size: larger;
@@ -48,8 +48,11 @@ div{
     height: 25px;
     width: 25px;
 }
-i{
+button{
     margin: 6px;
+    height: 25px;
+    width: 25px;
+    align-items: center;
 }
 #checkbox{
     width: 18px;

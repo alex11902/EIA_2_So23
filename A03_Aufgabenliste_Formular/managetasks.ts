@@ -16,7 +16,6 @@ function handleLoad():void {
     addbutton.addEventListener("click",handleButtonadd);
     editbutton.addEventListener("click",handleButtonedit);
     deletebutton.addEventListener("click",handleButtontrash);
-    
 
 }
 function handleButtonadd():void{
@@ -34,7 +33,27 @@ function handleButtontrash():void{
     console.log("delete task");
     
 }
+//* neue Task wird erstellt, bei klick auf den add-Button *//
+function displayTask(_event:Event) {
+  //form data auswerten//
+  let formData = new FormData(document.forms[0]);
+  formData.append("task", "datetime", "person", "comment", "status")
+  
+  
+}
 
+function handleChange(_event:Event){
+
+};
+function checkedTask():void{
+    
+}
+function deleteTask():void {
+    
+};
+function timeUp():void {
+    
+};
 
 }
 

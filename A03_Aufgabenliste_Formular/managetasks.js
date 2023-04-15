@@ -26,5 +26,22 @@ var household;
     function handleButtontrash() {
         console.log("delete task");
     }
+    //* neue Task wird erstellt, bei klick auf den add-Button *//
+    function displayTask(_event) {
+        //form data auswerten//
+        let formData = new FormData(document.forms[0]);
+        formData.append("task", "datetime", "person", "comment", "status");
+    }
+    function handleChange(_event) {
+    }
+    ;
+    function checkedTask() {
+    }
+    function deleteTask() {
+    }
+    ;
+    function timeUp() {
+    }
+    ;
 })(household || (household = {}));
 //# sourceMappingURL=managetasks.js.map

@@ -11,6 +11,7 @@ namespace household {
     let taskcollection: HTMLDivElement = <HTMLDivElement>(
       document.querySelector("#summtask")
     );
+    taskcollection.innerHTML = "";
     // for-Schleife durchläuft solang, wie länge des arrays
     for (let index = 0; index < data.moretasks.length; index++) {
       //erstellt in HTML Elemente für jeweils eine Aufgabe

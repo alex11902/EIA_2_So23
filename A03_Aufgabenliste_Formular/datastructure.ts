@@ -2,7 +2,7 @@ namespace household{
     //definiert von welchen typ die einzelnen Werte haben
     export interface Task {
         task: string;
-        datetime: string;
+        date: string;
         person:string;
         comment: string;
         status:boolean;
@@ -14,8 +14,8 @@ export interface Data {
 
 export let data: Data = {
 moretasks:[       
-    { task: "Küche putzen" ,datetime:" bis: 12.04 15Uhr", person:"David", comment: "Du faule Sau! mach auch mal!", status:false },   
-    { task: "Bad " ,datetime: "bis: 10.04, 11Uhr", person:"Mia", comment: "boden putzen", status:false}
+    { task: "Küche putzen" ,date:" 12-04-2023", person:"David", comment: "Du faule Sau! mach auch mal!", status:false },   
+    { task: "Bad " ,date: "10-04-023", person:"Mia", comment: "boden putzen", status:false}
 ] 
 }
 

@@ -21,7 +21,10 @@ namespace household {
       let personname: HTMLElement = <HTMLElement>document.createElement("p");
       let commenttext: HTMLElement = <HTMLElement>document.createElement("p");
       let notonedit: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+      notonedit.type = "radio";
+      notonedit.innerHTML ="nicht in bearbeitung"
       let onedit: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+      onedit.type = "radio";
       let check: HTMLInputElement = <HTMLInputElement>(
         document.createElement("checkbox")
       );
@@ -68,8 +71,5 @@ namespace household {
     }
   }
 
-  function handleChange(_event: Event) {}
-  function checkedTask(): void {}
-  function deleteTask(): void {}
-  function timeUp(): void {}
+  
 }

@@ -4,32 +4,44 @@ Aufgabe: <L02_EventInspector>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
 Datum: <30.03.2023>
-Quellen: <inspiriert von Medin Flaig>
+Quellen: <inspiriert von Medin Flaig und Alexander Holstein>
 */
 var household;
 (function (household) {
     window.addEventListener("load", handleLoad);
-    let task = document.querySelector("#task");
-    let date = document.querySelector("#date");
-    let person = document.querySelector("#name");
-    let comment = document.querySelector("#comment");
+    let task = (document.querySelector("#typetask"));
+    let date = (document.querySelector("#choosedate"));
+    let person = (document.querySelector("#typename"));
+    let comment = (document.querySelector("#typecomment"));
     function handleLoad() {
-        console.log(task);
-        /* task.value = "";
-        date.value = "";
-        person.value = "";
-        comment.value =""; */
-        let addbutton = document.querySelector("#add");
+        task = document.querySelector("#typetask");
+        date = document.querySelector("#choosedate");
+        person = document.querySelector("#typename");
+        comment = document.querySelector("#typecomment");
+        let addbutton = (document.querySelector("#add"));
         //let editbutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#edit");
-        let deletebutton = document.querySelector("#delete");
+        // let deletebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#delete");
         household.generateTasks();
         addbutton.addEventListener("click", handleButtonadd);
         //editbutton.addEventListener("click",handleButtonedit);
-        deletebutton.addEventListener("click", handleButtontrash);
+        // deletebutton.addEventListener("click",handleButtontrash);
     }
     function handleButtonadd() {
-        console.log(task.value);
-        household.data.moretasks.push({ task: task.value, date: date.value, person: person.value, comment: comment.value, status: false });
+        let taskadd = task.value;
+        console.log(taskadd);
+        let dateadd = date.value;
+        console.log(dateadd);
+        let personadd = person.value;
+        console.log(comment);
+        let commentadd = comment.value;
+        let newTASK = {
+            task: taskadd,
+            datetime: dateadd,
+            person: personadd,
+            comment: commentadd,
+            status: false,
+        };
+        household.data.moretasks.push(newTASK);
         console.log("add new task");
         household.generateTasks();
     }
@@ -39,5 +51,10 @@ var household;
     function handleButtontrash() {
         console.log("delete task");
     }
+    /*function handleChange(_event: Event) {}
+    function checkedTask(): void {}
+    function deleteTask(): void {}
+    function timeUp(): void {}
+  */
 })(household || (household = {}));
 //# sourceMappingURL=managetasks.js.map

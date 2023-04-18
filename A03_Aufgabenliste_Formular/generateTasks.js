@@ -21,7 +21,10 @@ var household;
             let personname = document.createElement("p");
             let commenttext = document.createElement("p");
             let notonedit = document.createElement("input");
+            notonedit.type = "radio";
+            notonedit.innerHTML = "nicht in bearbeitung";
             let onedit = document.createElement("input");
+            onedit.type = "radio";
             let check = (document.createElement("checkbox"));
             let editbutton = document.createElement("button");
             let editbuttonI = document.createElement("i");
@@ -63,9 +66,5 @@ var household;
         }
     }
     household.generateTasks = generateTasks;
-    function handleChange(_event) { }
-    function checkedTask() { }
-    function deleteTask() { }
-    function timeUp() { }
 })(household || (household = {}));
 //# sourceMappingURL=generateTasks.js.map

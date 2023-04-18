@@ -36,7 +36,7 @@ var household;
             let deletebuttonI = document.createElement("i");
             editbuttonI.className = "fas fa-edit";
             editbuttonI.id = "edit";
-            deletebuttonI.className = "fas fa-delete";
+            deletebuttonI.className = "far fa-trash-alt";
             deletebuttonI.id = "delete";
             //task wird taskcollection angehängt
             taskcollection.appendChild(task);

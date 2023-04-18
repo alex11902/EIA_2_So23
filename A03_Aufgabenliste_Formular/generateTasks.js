@@ -16,15 +16,19 @@ var household;
         for (let index = 0; index < household.data.moretasks.length; index++) {
             //erstellt in HTML Elemente für jeweils eine Aufgabe
             let task = document.createElement("div");
+            task.id = "taskelement";
             let taskname = document.createElement("p");
             let datetime = document.createElement("p");
             let personname = document.createElement("p");
             let commenttext = document.createElement("p");
-            let notonedit = document.createElement("input");
-            notonedit.type = "radio";
-            notonedit.innerHTML = "nicht in bearbeitung";
             let onedit = document.createElement("input");
             onedit.type = "radio";
+            let textonedit = document.createElement("label");
+            textonedit.innerHTML = "in Bearbeitung";
+            let done = document.createElement("input");
+            done.type = "radio";
+            let textdone = document.createElement("label");
+            textdone.innerHTML = "Erledigt";
             let check = (document.createElement("checkbox"));
             let editbutton = document.createElement("button");
             let editbuttonI = document.createElement("i");
@@ -41,8 +45,10 @@ var household;
             task.appendChild(datetime);
             task.appendChild(personname);
             task.appendChild(commenttext);
-            task.appendChild(notonedit);
             task.appendChild(onedit);
+            task.appendChild(textonedit);
+            task.appendChild(done);
+            task.appendChild(textdone);
             task.appendChild(check);
             //fügt Werte aus Array in HTML
             taskname.innerHTML = household.data.moretasks[index].task;
@@ -52,10 +58,10 @@ var household;
             /* let date = new Date();
             console.log(date); */
             if (household.data.moretasks[index].status) {
-                notonedit.checked = true;
+                onedit.checked = true;
             }
             else {
-                onedit.checked = false;
+                done.checked = false;
             }
             //
             check.checked = household.data.moretasks[index].status;

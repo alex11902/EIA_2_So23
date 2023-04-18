@@ -16,15 +16,19 @@ namespace household {
     for (let index = 0; index < data.moretasks.length; index++) {
       //erstellt in HTML Elemente für jeweils eine Aufgabe
       let task: HTMLDivElement = <HTMLDivElement>document.createElement("div");
+      task.id="taskelement";
       let taskname: HTMLElement = <HTMLElement>document.createElement("p");
       let datetime: HTMLElement = <HTMLElement>document.createElement("p");
       let personname: HTMLElement = <HTMLElement>document.createElement("p");
       let commenttext: HTMLElement = <HTMLElement>document.createElement("p");
-      let notonedit: HTMLInputElement = <HTMLInputElement>document.createElement("input");
-      notonedit.type = "radio";
-      notonedit.innerHTML ="nicht in bearbeitung"
       let onedit: HTMLInputElement = <HTMLInputElement>document.createElement("input");
       onedit.type = "radio";
+      let textonedit: HTMLElement = <HTMLElement>document.createElement("label");
+      textonedit.innerHTML ="in Bearbeitung";
+      let done: HTMLInputElement = <HTMLInputElement>document.createElement("input");
+      done.type = "radio";
+      let textdone: HTMLElement = <HTMLElement>document.createElement("label");
+      textdone.innerHTML ="Erledigt";
       let check: HTMLInputElement = <HTMLInputElement>(
         document.createElement("checkbox")
       );
@@ -47,8 +51,10 @@ namespace household {
       task.appendChild(datetime);
       task.appendChild(personname);
       task.appendChild(commenttext);
-      task.appendChild(notonedit);
       task.appendChild(onedit);
+      task.appendChild(textonedit);
+      task.appendChild(done);
+      task.appendChild(textdone);
       task.appendChild(check);
       //fügt Werte aus Array in HTML
       taskname.innerHTML = data.moretasks[index].task;
@@ -58,9 +64,9 @@ namespace household {
       /* let date = new Date();
       console.log(date); */
       if (data.moretasks[index].status) {
-        notonedit.checked = true;
+        onedit.checked = true;
       } else {
-        onedit.checked = false;
+        done.checked = false;
       }
       //
       check.checked = data.moretasks[index].status;

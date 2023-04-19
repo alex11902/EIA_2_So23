@@ -17,6 +17,7 @@ namespace household {
       //erstellt in HTML Elemente für jeweils eine Aufgabe
       let task: HTMLDivElement = <HTMLDivElement>document.createElement("div");
       task.id="taskelement";
+      
       let taskname: HTMLElement = <HTMLElement>document.createElement("p");
       let datetime: HTMLElement = <HTMLElement>document.createElement("p");
       let personname: HTMLElement = <HTMLElement>document.createElement("p");
@@ -32,6 +33,7 @@ namespace household {
       let check: HTMLInputElement = <HTMLInputElement>(
         document.createElement("checkbox")
       );
+      //generate button in HTML
       let editbutton: HTMLButtonElement = <HTMLButtonElement>document.createElement("button");
       let editbuttonI: HTMLElement = <HTMLElement>document.createElement("i");
 
@@ -74,6 +76,7 @@ namespace household {
       editbutton.appendChild(editbuttonI);
       task.appendChild(deletebutton);
       deletebutton.appendChild(deletebuttonI);
+      
     }
   }
 

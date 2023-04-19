@@ -31,11 +31,11 @@ namespace household {
       document.querySelector("#add")
     );
     //let editbutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#edit");
-    // let deletebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#delete");
+    let deletebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#delete");
     generateTasks();
     addbutton.addEventListener("click", handleButtonadd);
     //editbutton.addEventListener("click",handleButtonedit);
-    // deletebutton.addEventListener("click",handleButtontrash);
+    deletebutton.addEventListener("click",deleteTask);
 }
 function handleButtonadd(): void {
     let taskadd = task.value;
@@ -59,13 +59,24 @@ function handleButtonadd(): void {
     console.log("add new task");
 
     generateTasks();
+    
+  };
+  
+  function deleteTask(): void {
+
+    let deleteButton = task.querySelector("#delete");
+    if (deleteButton) {
+        deleteButton.addEventListener("click", function () {
+            task.remove();
+        });
+        console.log(handleButtonadd)
+    }
   }
-  function handleButtonedit(): void {
+
+
+ /*  function handleButtonedit(): void {
     console.log("edit task");
-  }
-  function handleButtontrash(): void {
-    console.log("delete task");
-  }
+  } */
   /*function handleChange(_event: Event) {}
   function checkedTask(): void {}
   function deleteTask(): void {}

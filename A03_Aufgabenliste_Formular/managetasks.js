@@ -20,11 +20,11 @@ var household;
         comment = document.querySelector("#typecomment");
         let addbutton = (document.querySelector("#add"));
         //let editbutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#edit");
-        // let deletebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#delete");
+        let deletebutton = document.querySelector("#delete");
         household.generateTasks();
         addbutton.addEventListener("click", handleButtonadd);
         //editbutton.addEventListener("click",handleButtonedit);
-        // deletebutton.addEventListener("click",handleButtontrash);
+        deletebutton.addEventListener("click", deleteTask);
     }
     function handleButtonadd() {
         let taskadd = task.value;
@@ -45,12 +45,19 @@ var household;
         console.log("add new task");
         household.generateTasks();
     }
-    function handleButtonedit() {
-        console.log("edit task");
+    ;
+    function deleteTask() {
+        let deleteButton = task.querySelector("#delete");
+        if (deleteButton) {
+            deleteButton.addEventListener("click", function () {
+                task.remove();
+            });
+            console.log(handleButtonadd);
+        }
     }
-    function handleButtontrash() {
-        console.log("delete task");
-    }
+    /*  function handleButtonedit(): void {
+       console.log("edit task");
+     } */
     /*function handleChange(_event: Event) {}
     function checkedTask(): void {}
     function deleteTask(): void {}

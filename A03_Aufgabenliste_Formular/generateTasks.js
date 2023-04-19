@@ -30,6 +30,7 @@ var household;
             let textdone = document.createElement("label");
             textdone.innerHTML = "Erledigt";
             let check = (document.createElement("checkbox"));
+            //generate button in HTML
             let editbutton = document.createElement("button");
             let editbuttonI = document.createElement("i");
             let deletebutton = document.createElement("button");

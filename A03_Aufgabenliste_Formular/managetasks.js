@@ -41,7 +41,7 @@ var household;
             comment: commentadd,
             status: false,
         };
-        household.data.moretasks.push(newTASK);
+        data.moretasks.push(newTASK);
         console.log("add new task");
         household.generateTasks();
     }

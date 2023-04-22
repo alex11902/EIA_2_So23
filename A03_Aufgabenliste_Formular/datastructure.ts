@@ -1,3 +1,10 @@
+/*
+Aufgabe: <L04_Datastructures>
+Name: <Lara Sophia Elisabeth Halmosi>
+Matrikel: <271343>
+Datum: <22.04.2023>
+Quellen: <inspiriert von Theresa Hauser>
+*/
 namespace household{
     //definiert von welchen typ die einzelnen Werte haben
     export interface Task {
@@ -12,11 +19,14 @@ export interface Data {
     [name: string]: Task[];
     }
 
-export let data: Data = {
-moretasks:[       
-    { task: "Küche putzen" ,datetime:" 12-04-2023 15.00", person:"David", comment: "Du faule Sau! mach auch mal!", status:false },   
-    { task: "Bad " ,datetime: "10-04-2023 18.00", person:"Mia", comment: "boden putzen", status:false}
-] 
-}
+export async function handleLoad(): Promise<void> {
+        console.log("async");
+        
+        let response: Response = await fetch("data.json");
+        let task: string = await response.text();
+        let data: Data = JSON.parse(task);
+        
+        generateTasks(data);
 
+}
 }

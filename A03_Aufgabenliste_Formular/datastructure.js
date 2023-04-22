@@ -1,11 +1,20 @@
 "use strict";
+/*
+Aufgabe: <L04_Datastructures>
+Name: <Lara Sophia Elisabeth Halmosi>
+Matrikel: <271343>
+Datum: <22.04.2023>
+Quellen: <inspiriert von Theresa Hauser>
+*/
 var household;
 (function (household) {
-    household.data = {
-        moretasks: [
-            { task: "Küche putzen", datetime: " 12-04-2023 15.00", person: "David", comment: "Du faule Sau! mach auch mal!", status: false },
-            { task: "Bad ", datetime: "10-04-2023 18.00", person: "Mia", comment: "boden putzen", status: false }
-        ]
-    };
+    async function handleLoad() {
+        console.log("async");
+        let response = await fetch("data.json");
+        let task = await response.text();
+        let data = JSON.parse(task);
+        household.generateTasks(data);
+    }
+    household.handleLoad = handleLoad;
 })(household || (household = {}));
 //# sourceMappingURL=datastructure.js.map

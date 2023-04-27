@@ -12,7 +12,9 @@ namespace household {
       document.querySelector("#summtask")
     );
     taskcollection.innerHTML = "";
+    console.log(data)
     // for-Schleife durchläuft solang, wie länge des arrays
+    
     for (let index = 0; index < data.moretasks.length; index++) {
       //erstellt in HTML Elemente für jeweils eine Aufgabe
       let task: HTMLDivElement = <HTMLDivElement>document.createElement("div");
@@ -70,14 +72,14 @@ namespace household {
       } else {
         done.checked = false;
       }
-      //
+      
       check.checked = data.moretasks[index].status;
       task.appendChild(editbutton);
       editbutton.appendChild(editbuttonI);
       task.appendChild(deletebutton);
       deletebutton.appendChild(deletebuttonI);
       
-    }
+    } 
   }
 
   

@@ -8,6 +8,7 @@ Quellen: <inspiriert von Medin Flaig und Alexander Holstein>
 namespace household {
   window.addEventListener("load", handleLoad);
 
+  
   let task: HTMLInputElement = <HTMLInputElement>(
     document.querySelector("#typetask")
   );
@@ -22,6 +23,7 @@ namespace household {
   );
   
   function handleLoad(): void {
+    fetchData()
       task = <HTMLInputElement>document.querySelector("#typetask");
       date = <HTMLInputElement>document.querySelector("#choosedate");
       person = <HTMLInputElement>document.querySelector("#typename");
@@ -30,12 +32,10 @@ namespace household {
       let addbutton: HTMLButtonElement = <HTMLButtonElement>(
       document.querySelector("#add")
     );
-    //let editbutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#edit");
-    let deletebutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#delete");
-    generateTasks();
+   
+    //generateTasks();
     addbutton.addEventListener("click", handleButtonadd);
-    //editbutton.addEventListener("click",handleButtonedit);
-    deletebutton.addEventListener("click",deleteTask);
+   
 }
 function handleButtonadd(): void {
     let taskadd = task.value;
@@ -58,7 +58,7 @@ function handleButtonadd(): void {
 
     console.log("add new task");
 
-    generateTasks();
+    //generateTasks();
     
   };
   

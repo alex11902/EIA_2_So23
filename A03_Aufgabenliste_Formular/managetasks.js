@@ -14,17 +14,14 @@ var household;
     let person = (document.querySelector("#typename"));
     let comment = (document.querySelector("#typecomment"));
     function handleLoad() {
+        household.fetchData();
         task = document.querySelector("#typetask");
         date = document.querySelector("#choosedate");
         person = document.querySelector("#typename");
         comment = document.querySelector("#typecomment");
         let addbutton = (document.querySelector("#add"));
-        //let editbutton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#edit");
-        let deletebutton = document.querySelector("#delete");
-        household.generateTasks();
+        //generateTasks();
         addbutton.addEventListener("click", handleButtonadd);
-        //editbutton.addEventListener("click",handleButtonedit);
-        deletebutton.addEventListener("click", deleteTask);
     }
     function handleButtonadd() {
         let taskadd = task.value;
@@ -41,9 +38,9 @@ var household;
             comment: commentadd,
             status: false,
         };
-        data.moretasks.push(newTASK);
+        household.data.moretasks.push(newTASK);
         console.log("add new task");
-        household.generateTasks();
+        //generateTasks();
     }
     ;
     function deleteTask() {

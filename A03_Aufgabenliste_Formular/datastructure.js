@@ -8,13 +8,14 @@ Quellen: <inspiriert von Theresa Hauser>
 */
 var household;
 (function (household) {
-    async function handleLoad() {
+    async function fetchData() {
         console.log("async");
-        let response = await fetch("data.json");
+        let response = await fetch("https://larahalmosi.github.io/EIA_2_So23/A03_Aufgabenliste_Formular/data.json");
         let task = await response.text();
-        let data = JSON.parse(task);
-        household.generateTasks(data);
+        household.data = JSON.parse(task);
+        console.log(household.data);
+        household.generateTasks();
     }
-    household.handleLoad = handleLoad;
+    household.fetchData = fetchData;
 })(household || (household = {}));
 //# sourceMappingURL=datastructure.js.map

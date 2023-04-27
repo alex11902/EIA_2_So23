@@ -40,7 +40,7 @@ var household;
         };
         household.data.moretasks.push(newTASK);
         console.log("add new task");
-        //generateTasks();
+        household.generateTasks();
     }
     ;
     function deleteTask() {

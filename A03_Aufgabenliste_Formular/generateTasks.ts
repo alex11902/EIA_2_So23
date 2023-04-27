@@ -12,7 +12,7 @@ namespace household {
       document.querySelector("#summtask")
     );
     taskcollection.innerHTML = "";
-    console.log(data)
+    
     // for-Schleife durchläuft solang, wie länge des arrays
     
     for (let index = 0; index < data.moretasks.length; index++) {

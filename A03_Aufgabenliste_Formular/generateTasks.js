@@ -12,7 +12,6 @@ var household;
     function generateTasks() {
         let taskcollection = (document.querySelector("#summtask"));
         taskcollection.innerHTML = "";
-        console.log(household.data);
         // for-Schleife durchläuft solang, wie länge des arrays
         for (let index = 0; index < household.data.moretasks.length; index++) {
             //erstellt in HTML Elemente für jeweils eine Aufgabe

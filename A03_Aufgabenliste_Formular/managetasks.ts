@@ -58,7 +58,7 @@ function handleButtonadd(): void {
 
     console.log("add new task");
 
-    //generateTasks();
+    generateTasks();
     
   };
   

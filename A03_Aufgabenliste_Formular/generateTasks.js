@@ -69,6 +69,8 @@ var household;
             editbutton.appendChild(editbuttonI);
             task.appendChild(deletebutton);
             deletebutton.appendChild(deletebuttonI);
+            deletebutton.setAttribute("type", "button");
+            deletebutton.addEventListener("click", household.deleteTask);
         }
     }
     household.generateTasks = generateTasks;

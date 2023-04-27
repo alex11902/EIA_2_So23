@@ -35,6 +35,7 @@ namespace household {
    
     //generateTasks();
     addbutton.addEventListener("click", handleButtonadd);
+    
    
 }
 function handleButtonadd(): void {
@@ -62,13 +63,16 @@ function handleButtonadd(): void {
     
   };
   
-  function deleteTask(): void {
+ export function deleteTask(_event:MouseEvent): void {
+  console.log("weg damit")
 
-    let deleteButton = task.querySelector("#delete");
-    if (deleteButton) {
-        deleteButton.addEventListener("click", function () {
-            task.remove();
-        });
+    let deleteButton = task.querySelector("#summtask");
+    let target: HTMLElement= <HTMLElement>_event.target;
+    let parent:HTMLElement= <HTMLElement>target.parentElement;
+
+    deleteButton?.removeChild(parent);
+        
+        
         console.log(handleButtonadd)
     }
   }

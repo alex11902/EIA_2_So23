@@ -31,4 +31,21 @@ export async function fetchData(): Promise<void> {
    
 
 }
+//change formular data
+interface FormDataJSON {
+    [key: string]: FormDataEntryValue | FormDataEntryValue[];
+  }
+  
+  let formData: FormData = new FormData(form);
+  let json: FormDataJSON = {};
+  
+  for (let key of formData.keys())
+    if (!json[key]) {
+      let values: FormDataEntryValue[] = formData.getAll(key);
+      json[key] = values.length > 1 ? values : values[0];
+    }
+//set query
+    let query: URLSearchParams = new URLSearchParams();
+    query.set("collection", "moretasks");
+    query.set("data", JSON.stringify(json));
 }

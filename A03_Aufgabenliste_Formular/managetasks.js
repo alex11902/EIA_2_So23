@@ -44,13 +44,20 @@ var household;
     }
     ;
     function deleteTask(_event) {
-        console.log("weg damit");
-        let deleteButton = task.querySelector("#summtask");
+        let deleteButton = document.querySelector("#summtask");
         let target = _event.target;
         let parent = target.parentElement;
         deleteButton?.removeChild(parent);
-        console.log(handleButtonadd);
+        console.log("weg damit");
     }
     household.deleteTask = deleteTask;
 })(household || (household = {}));
+/*  function handleButtonedit(): void {
+   console.log("edit task");
+ } */
+/*function handleChange(_event: Event) {}
+function checkedTask(): void {}
+function deleteTask(): void {}
+function timeUp(): void {}
+*/
 //# sourceMappingURL=managetasks.js.map

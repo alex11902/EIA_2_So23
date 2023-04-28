@@ -40,11 +40,11 @@ namespace household {
 }
 function handleButtonadd(): void {
     let taskadd = task.value;
-    console.log(taskadd);
+    //console.log(taskadd);
     let dateadd = date.value;
-    console.log(dateadd);
+    //console.log(dateadd);
     let personadd = person.value;
-    console.log(comment);
+   // console.log(comment);
     let commentadd = comment.value;
     
     let newTASK: Task = {
@@ -57,23 +57,23 @@ function handleButtonadd(): void {
 
     data.moretasks.push(newTASK);
 
-    console.log("add new task");
+    //console.log("add new task");
 
     generateTasks();
     
   };
   
  export function deleteTask(_event:MouseEvent): void {
-  console.log("weg damit")
 
-    let deleteButton = task.querySelector("#summtask");
+
+    let deleteButton = document.querySelector("#summtask");
     let target: HTMLElement= <HTMLElement>_event.target;
     let parent:HTMLElement= <HTMLElement>target.parentElement;
 
     deleteButton?.removeChild(parent);
+    //console.log("weg damit")
         
-        
-        console.log(handleButtonadd)
+
     }
   }
 
@@ -86,4 +86,4 @@ function handleButtonadd(): void {
   function deleteTask(): void {}
   function timeUp(): void {}
 */
-}
+

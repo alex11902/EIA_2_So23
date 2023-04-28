@@ -17,5 +17,16 @@ var household;
         household.generateTasks();
     }
     household.fetchData = fetchData;
+    let formData = new FormData(form);
+    let json = {};
+    for (let key of formData.keys())
+        if (!json[key]) {
+            let values = formData.getAll(key);
+            json[key] = values.length > 1 ? values : values[0];
+        }
+    //set query
+    let query = new URLSearchParams();
+    query.set("collection", "moretasks");
+    query.set("data", JSON.stringify(json));
 })(household || (household = {}));
 //# sourceMappingURL=datastructure.js.map

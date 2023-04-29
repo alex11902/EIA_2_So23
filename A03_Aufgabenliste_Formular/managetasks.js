@@ -25,11 +25,11 @@ var household;
     }
     function handleButtonadd() {
         let taskadd = task.value;
-        console.log(taskadd);
+        //console.log(taskadd);
         let dateadd = date.value;
-        console.log(dateadd);
+        //console.log(dateadd);
         let personadd = person.value;
-        console.log(comment);
+        // console.log(comment);
         let commentadd = comment.value;
         let newTASK = {
             task: taskadd,
@@ -39,7 +39,7 @@ var household;
             status: false,
         };
         household.data.moretasks.push(newTASK);
-        console.log("add new task");
+        //console.log("add new task");
         household.generateTasks();
     }
     ;
@@ -48,7 +48,7 @@ var household;
         let target = _event.target;
         let parent = target.parentElement;
         deleteButton?.removeChild(parent);
-        console.log("weg damit");
+        //console.log("weg damit")
     }
     household.deleteTask = deleteTask;
 })(household || (household = {}));

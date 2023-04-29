@@ -2,7 +2,7 @@
 Aufgabe: <L04_Datastructures>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
-Datum: <22.04.2023>
+Datum: <29.04.2023>
 Quellen: <inspiriert von Theresa Hauser>
 */
 namespace household{
@@ -26,7 +26,7 @@ export async function fetchData(): Promise<void> {
     let response: Response = await fetch("https://larahalmosi.github.io/EIA_2_So23/A03_Aufgabenliste_Formular/data.json");
     let task: string = await response.text();
     data = JSON.parse(task);
-     console.log(data)
+     console.log("Hey da funktioniert was!")
     generateTasks();
    
 
@@ -48,4 +48,15 @@ interface FormDataJSON {
     let query: URLSearchParams = new URLSearchParams();
     query.set("collection", "moretasks");
     query.set("data", JSON.stringify(json));
+}
+// data from mingi_DB
+ /* export async function loaddata(): Promise<void> {
+    const response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=TaskList");
+    const dataJSON = await response.json();
+    data = dataJSON.data;
+    for (let docId in data) {
+        let item = data[docId]
+
+        generateTasks(item);
+    } */
 }

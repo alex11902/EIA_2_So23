@@ -50,13 +50,13 @@ interface FormDataJSON {
     query.set("data", JSON.stringify(json));
 }
 // data from mingi_DB
- /* export async function loaddata(): Promise<void> {
-    const response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=TaskList");
+ /export async function loaddata(): Promise<void> {
+    const response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=Task");
     const dataJSON = await response.json();
     data = dataJSON.data;
     for (let docId in data) {
         let item = data[docId]
 
-        generateTasks(item);
-    } */
-}
+        generateTasks();
+    }
+ }

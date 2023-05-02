@@ -19,11 +19,11 @@ export interface Task {
 export interface Data {
 [name: string]: Task[];
 }
-
+//data from mingi
 export async function fetchData(): Promise<void> {
     console.log("async");
     
-    let response: Response = await fetch("https://larahalmosi.github.io/EIA_2_So23/A03_Aufgabenliste_Formular/data.json");
+    let response: Response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=Task");
     let task: string = await response.text();
     data = JSON.parse(task);
      console.log("Hey da funktioniert was!")
@@ -49,14 +49,5 @@ interface FormDataJSON {
     query.set("collection", "moretasks");
     query.set("data", JSON.stringify(json));
 }
-// data from mingi_DB
- /export async function loaddata(): Promise<void> {
-    const response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=Task");
-    const dataJSON = await response.json();
-    data = dataJSON.data;
-    for (let docId in data) {
-        let item = data[docId]
 
-        generateTasks();
-    }
- }
+ 

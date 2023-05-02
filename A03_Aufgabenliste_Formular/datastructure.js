@@ -8,9 +8,10 @@ Quellen: <inspiriert von Theresa Hauser>
 */
 var household;
 (function (household) {
+    //data from mingi
     async function fetchData() {
         console.log("async");
-        let response = await fetch("https://larahalmosi.github.io/EIA_2_So23/A03_Aufgabenliste_Formular/data.json");
+        let response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=Task");
         let task = await response.text();
         household.data = JSON.parse(task);
         console.log("Hey da funktioniert was!");

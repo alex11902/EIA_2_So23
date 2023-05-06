@@ -3,9 +3,10 @@
 Aufgabe: <L08.1_GenerativeKunst>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
-Datum: <03.05.2023>
+Datum: <06.05.2023>
 Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
 */
+// Handle-load function
 var Canvas;
 (function (Canvas) {
     window.addEventListener("load", handleLoad);
@@ -15,27 +16,88 @@ var Canvas;
         canvas = document.querySelector("canvas");
         crc2 = canvas.getContext("2d");
         background();
-        lines();
+        randomLines();
+        randomSquares();
+        randomCircles();
     }
-    ;
+    //Set background-color for canvas
     function background() {
-        crc2.fillStyle = "lightblue";
+        // Generate random color
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+        crc2.fillStyle = "rgb(" + red + "," + green + "," + blue + ")";
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.beginPath();
-        crc2.arc(50, 100, 30, 0, 1.5 * Math.PI);
         crc2.closePath();
         crc2.stroke();
     }
-    ;
-    function lines() {
-        crc2.beginPath();
-        crc2.moveTo(20.1, 24);
-        crc2.lineTo(20.1, 10);
-        crc2.moveTo(40.5, 34);
-        crc2.lineTo(40.5, 46);
-        crc2.moveTo(70.5, 47);
-        crc2.lineTo(10.5, 30);
-        crc2.stroke();
+    // Draw Lines
+    function randomLines() {
+        // Draw random lines
+        for (let i = 0; i < 50; i++) {
+            // Set random color
+            crc2.strokeStyle =
+                "rgb(" +
+                    Math.floor(Math.random() * 5) +
+                    ", " +
+                    Math.floor(Math.random() * 123) +
+                    ", " +
+                    Math.floor(Math.random() * 256) +
+                    ")";
+            // Set random coordinates
+            let startX = Math.random() * crc2.canvas.width;
+            let startY = Math.random() * crc2.canvas.height;
+            let endX = Math.random() * crc2.canvas.width;
+            let endY = Math.random() * crc2.canvas.height;
+            // Draw line
+            crc2.beginPath();
+            crc2.moveTo(startX, startY);
+            crc2.lineTo(endX, endY);
+            crc2.stroke();
+        }
+    }
+    // Draw Squares
+    function randomSquares() {
+        for (let i = 0; i < 20; i++) {
+            // Set random color
+            crc2.fillStyle =
+                "rgb(" +
+                    Math.floor(Math.random() * 256) +
+                    ", " +
+                    Math.floor(Math.random() * 256) +
+                    ", " +
+                    Math.floor(Math.random() * 256) +
+                    ")";
+            // Set random coordinates and size
+            let x = Math.random() * crc2.canvas.width;
+            let y = Math.random() * crc2.canvas.height;
+            let size = Math.random() * 50;
+            // Draw square
+            crc2.fillRect(x, y, size, size);
+        }
+    }
+    //  Draw circles
+    function randomCircles() {
+        for (let i = 0; i < 100; i++) {
+            // Set random color
+            crc2.fillStyle =
+                "rgb(" +
+                    Math.floor(Math.random() * 256) +
+                    ", " +
+                    Math.floor(Math.random() * 256) +
+                    ", " +
+                    Math.floor(Math.random() * 256) +
+                    ")";
+            // Set random coordinates and size
+            let x = Math.random() * crc2.canvas.width;
+            let y = Math.random() * crc2.canvas.height;
+            let radius = Math.random() * 10;
+            // Draw circle
+            crc2.beginPath();
+            crc2.arc(x, y, radius, 0, 2 * Math.PI);
+            crc2.fill();
+        }
     }
 })(Canvas || (Canvas = {}));
 //# sourceMappingURL=createcanvas.js.map

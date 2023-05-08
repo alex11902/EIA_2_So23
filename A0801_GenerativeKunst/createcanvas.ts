@@ -3,7 +3,7 @@ Aufgabe: <L08.1_GenerativeKunst>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
 Datum: <06.05.2023>
-Quellen: <Kommilitonis mit denen Du zusammengearbeitet hast oder von denen Du dich inspirieren ließest>
+Quellen: <https://web-development.github.io/grafik/2dcanvas/>
 */
 // Handle-load function
 
@@ -14,12 +14,24 @@ namespace Canvas {
   let crc2: CanvasRenderingContext2D;
 
   function handleLoad(): void {
+    const w = 770,
+      h = 480;
+
     canvas = <HTMLCanvasElement>document.querySelector("canvas");
     crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+    // Makes pixels smooth
+    let ratio = window.devicePixelRatio;
+    crc2.scale(ratio, ratio);
+
+    canvas.width = w * ratio;
+    canvas.height = h * ratio;
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
     background();
     randomLines();
     randomSquares();
     randomCircles();
+    drawImages();
   }
   //Set background-color for canvas
 
@@ -110,4 +122,39 @@ namespace Canvas {
       crc2.fill();
     }
   }
+  // Array mit den Bild-URLs von Schaf Dolly
+let imageUrls = [
+  "https://cloudfront-eu-central-1.images.arcpublishing.com/madsack/UUNTCG4ROZDMJOUKMHR5PUTUII.jpeg",
+  "https://www.animalresearch.info/files/7414/0742/1258/1996_1.jpg",
+  "https://media1.faz.net/ppmedia/video/2218347658/1.106625/default-retina/professor-ian-wilmut-mit-der.jpg"
+];
+function drawImages() {
+// Load images
+function loadImage(url:any) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.addEventListener('load', () => resolve(image));
+    image.addEventListener('error', (error) => reject(error));
+    image.src = url;
+  });
 }
+
+// Draw images on canvas
+async function drawImage(image:any, x:number, y:number) {
+  crc2.drawImage(image, x, y, Math.random()*200, Math.random()*200);
+}
+ // Load images
+ Promise.all(imageUrls.map(loadImage))
+ .then((images) => {
+   // Duplicate and randomize picture
+   for (let i = 0; i < Math.random() * 47; i++) {
+     images.forEach((image) => {
+       drawImage(image,  Math.random() * canvas.width,  canvas.height * Math.random());
+     });
+   }
+ })
+ .catch((error) => console.error(error));
+}
+}
+
+

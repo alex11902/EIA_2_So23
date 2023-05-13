@@ -6,20 +6,21 @@ Datum: <16.04.2023>
 Quellen: <inspiriert von Theresa Hauser>
 */
 //* neue Task wird erstellt, bei klick auf den add-Button *//
-namespace household {
+namespace copy {
   export function generateTasks() {
     let taskcollection: HTMLDivElement = <HTMLDivElement>(
       document.querySelector("#summtask")
     );
     taskcollection.innerHTML = "";
+
+    
+    for (let x in _data.data) {
+        taskcollection.push(x);
+    }
     
     // for-Schleife durchläuft solang, wie länge des arrays
-    console.log(data.data);
-    for( let i of data.data) {
-      console.log("help");
     
-    //for (let index = 0; index < data.data.length; index++) 
-    {
+    for (let index = 0; index < data.moretasks.length; index++) {
       //erstellt in HTML Elemente für jeweils eine Aufgabe
       let task: HTMLDivElement = <HTMLDivElement>document.createElement("div");
       task.id="taskelement";
@@ -65,32 +66,35 @@ namespace household {
       task.appendChild(textdone);
       task.appendChild(check);
       //fügt Werte aus Array in HTML
-      taskname.innerHTML = data.data[index].task;
-      datetime.innerHTML = data.data[index].datetime;
-      personname.innerHTML = data.data[index].person;
-      commenttext.innerHTML = data.data[index].comment;
-      //values
-      taskname.value = data.data[i].task;
-      datetime.value = data.data[i].datetime;
-      personname.value = data.data[i].person;
-      commenttext.value = data.data[i].comment;
+      taskname.innerHTML = data.moretasks[index].task;
+      datetime.innerHTML = data.moretasks[index].datetime;
+      personname.innerHTML = data.moretasks[index].person;
+      commenttext.innerHTML = data.moretasks[index].comment;
       /* let date = new Date();
       console.log(date); */
-      if (data.data[index].status) {
+      if (data.moretasks[index].status) {
         onedit.checked = true;
       } else {
         done.checked = false;
       }
+
+      taskname.value = _data.data[i].taskname;
+      datetime.value = _data.data[i].datetime;
+      personname.value = _data.data[i].personname;
+      commenttext.value = _data.data[i].commenttext;
       
-      check.checked = data.data[index].status;
+      check.checked = data.moretasks[index].status;
       task.appendChild(editbutton);
       editbutton.appendChild(editbuttonI);
       task.appendChild(deletebutton);
       deletebutton.appendChild(deletebuttonI);
       deletebutton.setAttribute("type","button")
-      deletebutton.addEventListener("click",deleteTask)
-      
-    } 
+      deletebutton.addEventListener("click",
+      async function (){
+        await fetch("https://webuser.hs-furtwangen.de/~halmosil/Database/?command=delete&collection=task&id=" + i);
+        ,deleteTask(taskelement);
+        )};
+    
   }
 
   

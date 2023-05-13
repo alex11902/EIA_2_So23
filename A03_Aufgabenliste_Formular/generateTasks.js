@@ -13,64 +13,74 @@ var household;
         let taskcollection = (document.querySelector("#summtask"));
         taskcollection.innerHTML = "";
         // for-Schleife durchläuft solang, wie länge des arrays
-        for (let index = 0; index < household.data.moretasks.length; index++) {
-            //erstellt in HTML Elemente für jeweils eine Aufgabe
-            let task = document.createElement("div");
-            task.id = "taskelement";
-            let taskname = document.createElement("p");
-            let datetime = document.createElement("p");
-            let personname = document.createElement("p");
-            let commenttext = document.createElement("p");
-            let onedit = document.createElement("input");
-            onedit.type = "radio";
-            let textonedit = document.createElement("label");
-            textonedit.innerHTML = "in Bearbeitung";
-            let done = document.createElement("input");
-            done.type = "radio";
-            let textdone = document.createElement("label");
-            textdone.innerHTML = "Erledigt";
-            let check = (document.createElement("checkbox"));
-            //generate button in HTML
-            let editbutton = document.createElement("button");
-            let editbuttonI = document.createElement("i");
-            let deletebutton = document.createElement("button");
-            let deletebuttonI = document.createElement("i");
-            editbuttonI.className = "fas fa-edit";
-            editbuttonI.id = "edit";
-            deletebuttonI.className = "far fa-trash-alt";
-            deletebuttonI.id = "delete";
-            //task wird taskcollection angehängt
-            taskcollection.appendChild(task);
-            //Elemente werden task angehängt
-            task.appendChild(taskname);
-            task.appendChild(datetime);
-            task.appendChild(personname);
-            task.appendChild(commenttext);
-            task.appendChild(onedit);
-            task.appendChild(textonedit);
-            task.appendChild(done);
-            task.appendChild(textdone);
-            task.appendChild(check);
-            //fügt Werte aus Array in HTML
-            taskname.innerHTML = household.data.moretasks[index].task;
-            datetime.innerHTML = household.data.moretasks[index].datetime;
-            personname.innerHTML = household.data.moretasks[index].person;
-            commenttext.innerHTML = household.data.moretasks[index].comment;
-            /* let date = new Date();
-            console.log(date); */
-            if (household.data.moretasks[index].status) {
-                onedit.checked = true;
+        console.log(household.data.data);
+        for (let i of household.data.data) {
+            console.log("help");
+            //for (let index = 0; index < data.data.length; index++) 
+            {
+                //erstellt in HTML Elemente für jeweils eine Aufgabe
+                let task = document.createElement("div");
+                task.id = "taskelement";
+                let taskname = document.createElement("p");
+                let datetime = document.createElement("p");
+                let personname = document.createElement("p");
+                let commenttext = document.createElement("p");
+                let onedit = document.createElement("input");
+                onedit.type = "radio";
+                let textonedit = document.createElement("label");
+                textonedit.innerHTML = "in Bearbeitung";
+                let done = document.createElement("input");
+                done.type = "radio";
+                let textdone = document.createElement("label");
+                textdone.innerHTML = "Erledigt";
+                let check = (document.createElement("checkbox"));
+                //generate button in HTML
+                let editbutton = document.createElement("button");
+                let editbuttonI = document.createElement("i");
+                let deletebutton = document.createElement("button");
+                let deletebuttonI = document.createElement("i");
+                editbuttonI.className = "fas fa-edit";
+                editbuttonI.id = "edit";
+                deletebuttonI.className = "far fa-trash-alt";
+                deletebuttonI.id = "delete";
+                //task wird taskcollection angehängt
+                taskcollection.appendChild(task);
+                //Elemente werden task angehängt
+                task.appendChild(taskname);
+                task.appendChild(datetime);
+                task.appendChild(personname);
+                task.appendChild(commenttext);
+                task.appendChild(onedit);
+                task.appendChild(textonedit);
+                task.appendChild(done);
+                task.appendChild(textdone);
+                task.appendChild(check);
+                //fügt Werte aus Array in HTML
+                taskname.innerHTML = household.data.data[index].task;
+                datetime.innerHTML = household.data.data[index].datetime;
+                personname.innerHTML = household.data.data[index].person;
+                commenttext.innerHTML = household.data.data[index].comment;
+                //values
+                taskname.value = household.data.data[i].task;
+                datetime.value = household.data.data[i].datetime;
+                personname.value = household.data.data[i].person;
+                commenttext.value = household.data.data[i].comment;
+                /* let date = new Date();
+                console.log(date); */
+                if (household.data.data[index].status) {
+                    onedit.checked = true;
+                }
+                else {
+                    done.checked = false;
+                }
+                check.checked = household.data.data[index].status;
+                task.appendChild(editbutton);
+                editbutton.appendChild(editbuttonI);
+                task.appendChild(deletebutton);
+                deletebutton.appendChild(deletebuttonI);
+                deletebutton.setAttribute("type", "button");
+                deletebutton.addEventListener("click", household.deleteTask);
             }
-            else {
-                done.checked = false;
-            }
-            check.checked = household.data.moretasks[index].status;
-            task.appendChild(editbutton);
-            editbutton.appendChild(editbuttonI);
-            task.appendChild(deletebutton);
-            deletebutton.appendChild(deletebuttonI);
-            deletebutton.setAttribute("type", "button");
-            deletebutton.addEventListener("click", household.deleteTask);
         }
     }
     household.generateTasks = generateTasks;

@@ -13,21 +13,52 @@ var household;
         console.log("async");
         let response = await fetch("https://webuser.hs-furtwangen.de/~halmosil/database/?command=find&collection=Task");
         let task = await response.text();
+        console.log("hello");
         household.data = JSON.parse(task);
+        console.log(household.data);
         console.log("Hey da funktioniert was!");
         household.generateTasks();
     }
     household.fetchData = fetchData;
-    let formData = new FormData(form);
-    let json = {};
-    for (let key of formData.keys())
+    /* change formular data
+    interface FormDataJSON {
+        [key: string]: FormDataEntryValue | FormDataEntryValue[];
+      }
+      
+      let formData: FormData = new FormData(form);
+      let json: FormDataJSON = {};
+      
+      for (let key of formData.keys())
         if (!json[key]) {
-            let values = formData.getAll(key);
-            json[key] = values.length > 1 ? values : values[0];
+          let values: FormDataEntryValue[] = formData.getAll(key);
+          json[key] = values.length > 1 ? values : values[0];
         }
     //set query
-    let query = new URLSearchParams();
+        let query: URLSearchParams = new URLSearchParams();
+        query.set("collection", "moretasks");
+        query.set("data", JSON.stringify(json));
+    }
+    
+      */
+})(household || (household = {}));
+/* change formular data
+interface FormDataJSON {
+    [key: string]: FormDataEntryValue | FormDataEntryValue[];
+  }
+  
+  let formData: FormData = new FormData(form);
+  let json: FormDataJSON = {};
+  
+  for (let key of formData.keys())
+    if (!json[key]) {
+      let values: FormDataEntryValue[] = formData.getAll(key);
+      json[key] = values.length > 1 ? values : values[0];
+    }
+//set query
+    let query: URLSearchParams = new URLSearchParams();
     query.set("collection", "moretasks");
     query.set("data", JSON.stringify(json));
-})(household || (household = {}));
+}
+
+  */
 //# sourceMappingURL=datastructure.js.map

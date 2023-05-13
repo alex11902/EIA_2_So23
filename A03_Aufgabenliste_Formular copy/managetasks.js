@@ -6,15 +6,15 @@ Matrikel: <271343>
 Datum: <30.03.2023>
 Quellen: <inspiriert von Medin Flaig und Alexander Holstein>
 */
-var household;
-(function (household) {
+var copy;
+(function (copy) {
     window.addEventListener("load", handleLoad);
     let task = (document.querySelector("#typetask"));
     let date = (document.querySelector("#choosedate"));
     let person = (document.querySelector("#typename"));
     let comment = (document.querySelector("#typecomment"));
     function handleLoad() {
-        household.fetchData();
+        copy.fetchData();
         task = document.querySelector("#typetask");
         date = document.querySelector("#choosedate");
         person = document.querySelector("#typename");
@@ -38,26 +38,24 @@ var household;
             comment: commentadd,
             status: false,
         };
-        household.data.moretasks.push(newTASK);
+        copy.data.moretasks.push(newTASK);
+        let query = JSON.parse(newTask);
+        await fetch("https://webuser.hs-furtwangen.de/~halmosil/Database/?command=insert&collection=Task&data=" + query);
         //console.log("add new task");
-        //generateTasks();
+        task.value = "";
+        date.value = "";
+        person.value = "Lisa";
+        comment.value = "2023-04-30";
+        copy.generateTasks();
     }
     ;
-    function deleteTask(_event) {
+    async function deleteTask(_event) {
         let deleteButton = document.querySelector("#summtask");
         let target = _event.target;
         let parent = target.parentElement;
         deleteButton?.removeChild(parent);
         //console.log("weg damit")
     }
-    household.deleteTask = deleteTask;
-})(household || (household = {}));
-/*  function handleButtonedit(): void {
-   console.log("edit task");
- } */
-/*function handleChange(_event: Event) {}
-function checkedTask(): void {}
-function deleteTask(): void {}
-function timeUp(): void {}
-*/
+    copy.deleteTask = deleteTask;
+})(copy || (copy = {}));
 //# sourceMappingURL=managetasks.js.map

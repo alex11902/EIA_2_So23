@@ -5,7 +5,7 @@ Matrikel: <271343>
 Datum: <30.03.2023>
 Quellen: <inspiriert von Medin Flaig und Alexander Holstein>
 */
-namespace household {
+namespace copy {
   window.addEventListener("load", handleLoad);
 
   
@@ -57,13 +57,20 @@ function handleButtonadd(): void {
 
     data.moretasks.push(newTASK);
 
-    //console.log("add new task");
+    let query = JSON.parse(newTask); 
 
-    //generateTasks();
+    await fetch("https://webuser.hs-furtwangen.de/~halmosil/Database/?command=insert&collection=Task&data=" + query);
+    //console.log("add new task");
+    task.value = "";
+    date.value = "";
+    person.value = "Lisa";
+    comment.value = "2023-04-30";
+    
+    generateTasks();
     
   };
   
- export function deleteTask(_event:MouseEvent): void {
+ export async function deleteTask(_event:MouseEvent): Promise <void> {
 
 
     let deleteButton = document.querySelector("#summtask");
@@ -78,12 +85,4 @@ function handleButtonadd(): void {
   }
 
 
- /*  function handleButtonedit(): void {
-    console.log("edit task");
-  } */
-  /*function handleChange(_event: Event) {}
-  function checkedTask(): void {}
-  function deleteTask(): void {}
-  function timeUp(): void {}
-*/
 

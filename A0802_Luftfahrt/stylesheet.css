@@ -47,9 +47,8 @@ body {
   text-align: center;
   margin: 0;
   color: var(--color-primary);
-  //color: transparent;
-  //background-color: white;
-  //background-clip: text;
+  color: transparent; 
+  background-clip: text;
   animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
   letter-spacing: 0.4rem;
 }

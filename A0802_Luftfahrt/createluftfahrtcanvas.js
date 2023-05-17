@@ -13,7 +13,7 @@ var Luftfahrt;
     let canvas;
     let crc2;
     function handleLoad() {
-        let w = 770, h = 480;
+        let w = 820, h = 490;
         canvas = document.querySelector("canvas");
         crc2 = canvas.getContext("2d");
         // Makes pixels smooth

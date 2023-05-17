@@ -13,8 +13,8 @@ namespace Luftfahrt {
   let crc2: CanvasRenderingContext2D;
 
   function handleLoad(): void {
-    let w = 770,
-      h = 480;
+    let w = 820,
+      h = 490;
 
     canvas = <HTMLCanvasElement>document.querySelector("canvas");
     crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");

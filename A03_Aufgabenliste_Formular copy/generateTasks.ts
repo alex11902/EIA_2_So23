@@ -14,8 +14,8 @@ namespace copy {
     taskcollection.innerHTML = "";
 
     
-    for (let x in _data.data) {
-        taskcollection.push(x);
+  //  for (let x in _data.data) {
+   //     taskcollection.push(x);
     }
     
     // for-Schleife durchläuft solang, wie länge des arrays
@@ -54,7 +54,7 @@ namespace copy {
       deletebuttonI.id = "delete";
 
       //task wird taskcollection angehängt
-      taskcollection.appendChild(task);
+     // taskcollection.appendChild(task);
       //Elemente werden task angehängt
       task.appendChild(taskname);
       task.appendChild(datetime);
@@ -78,10 +78,10 @@ namespace copy {
         done.checked = false;
       }
 
-      taskname.value = _data.data[i].taskname;
+     /* taskname.value = _data.data[i].taskname;
       datetime.value = _data.data[i].datetime;
       personname.value = _data.data[i].personname;
-      commenttext.value = _data.data[i].commenttext;
+      commenttext.value = _data.data[i].commenttext;*/
       
       check.checked = data.moretasks[index].status;
       task.appendChild(editbutton);
@@ -91,11 +91,7 @@ namespace copy {
       deletebutton.setAttribute("type","button")
       deletebutton.addEventListener("click",
       async function (){
-        await fetch("https://webuser.hs-furtwangen.de/~halmosil/Database/?command=delete&collection=task&id=" + i);
-        ,deleteTask(taskelement);
-        )};
-    
-  }
-
-  
-}
+      //  await fetch("https://webuser.hs-furtwangen.de/~halmosil/Database/?command=delete&collection=task&id=" + i);
+        //,deleteTask(taskelement);
+        };
+      }

@@ -1,0 +1,21 @@
+body{
+    background-image: url(rustic-farm-918105_1920.jpg);
+   font-family: Arial, Helvetica, sans-serif;
+   text-align: center;
+}
+div{
+    background-color: bisque;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+button{
+    border-radius: 10px;
+    background-color: bisque; padding: 10px;
+}
+button:hover{
+    background-color: burlywood;
+}

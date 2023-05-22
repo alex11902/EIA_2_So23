@@ -9,7 +9,7 @@ Quellen: <insects and windsock inspired by Marie Eckl>
 namespace OldMacDonalds {
     export class Animals {
         animaltyp: string = "Cow,Pig,Chicken, Cat, Horse";
-        names: string= ""
+        names: string= "Boxer"
         food:string = "Grass, Junk, Grain, Meat, Grass";
         foodamount: string= "4,7,5";
         noise:string="MOOO,OINK, BOGK,MIAU,WIAH"

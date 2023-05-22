@@ -10,7 +10,7 @@ var OldMacDonalds;
 (function (OldMacDonalds) {
     class Animals {
         animaltyp = "Cow,Pig,Chicken, Cat, Horse";
-        names = "";
+        names = "Boxer";
         food = "Grass, Junk, Grain, Meat, Grass";
         foodamount = "4,7,5";
         noise = "MOOO,OINK, BOGK,MIAU,WIAH";

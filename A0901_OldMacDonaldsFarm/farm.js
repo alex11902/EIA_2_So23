@@ -13,7 +13,7 @@ var OldMacDonalds;
     console.log(cow);
     let pig = new OldMacDonalds.Animal("Pig", "Napoleon", "Junk", 5, 55, "OINK");
     let chicken = new OldMacDonalds.Animal("Chicken", "Arnold", "Grain", 1, 20, "BOGBOG");
-    let cat = new OldMacDonalds.Animal("Cat", "Cat", "Meat", 8, 35, "MIAAAU");
+    let cat = new OldMacDonalds.Animal("Cat", "Cat#", "Meat", 8, 35, "MIAAAU");
     let horse = new OldMacDonalds.Animal("Horse", "Boxer", "Grass", 10, 47, "WIIIUUU");
     let allAnimals = [cow, pig, chicken, cat, horse];
     function handleLoad(_event) {

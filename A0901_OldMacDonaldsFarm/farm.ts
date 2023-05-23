@@ -14,7 +14,7 @@ namespace OldMacDonalds {
     console.log(cow)   
     let pig: Animal = new Animal("Pig", "Napoleon", "Junk", 5, 55, "OINK");
     let chicken: Animal = new Animal("Chicken", "Arnold", "Grain", 1, 20, "BOGBOG");
-    let cat: Animal = new Animal("Cat", "Cat", "Meat",8, 35, "MIAAAU");
+    let cat: Animal = new Animal("Cat", "Cat#", "Meat",8, 35, "MIAAAU");
     let horse: Animal = new Animal("Horse", "Boxer", "Grass", 10, 47, "WIIIUUU");
     let allAnimals: Animal[] = [cow, pig, chicken, cat, horse];
   

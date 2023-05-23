@@ -19,3 +19,11 @@ button{
 button:hover{
     background-color: burlywood;
 }
+footer{
+    background-color: bisque;
+    height: 20px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+}

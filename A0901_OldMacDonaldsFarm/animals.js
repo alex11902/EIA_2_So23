@@ -8,15 +8,28 @@ Quellen: <insects and windsock inspired by Marie Eckl>
 // Handle-load function
 var OldMacDonalds;
 (function (OldMacDonalds) {
-    class Animals {
-        animaltyp = "Cow,Pig,Chicken, Cat, Horse";
-        names = "Boxer";
-        food = "Grass, Junk, Grain, Meat, Grass";
-        foodamount = "4,7,5";
-        noise = "MOOO,OINK, BOGK,MIAU,WIAH";
-        constructor(_animals, _names, _food) {
+    class Animal {
+        animaltype;
+        name;
+        food;
+        foodstock;
+        portion;
+        noise;
+        constructor(_animaltype, _name, _food, _foodstock, _portion, _noise) {
+            this.animaltype = _animaltype;
+            this.name = _name;
+            this.food = _food;
+            this.foodstock = _foodstock;
+            this.portion = _portion;
+            this.noise = _noise;
+        }
+        singSong() {
+            return `<h2>${this.name} the ${this.animaltype}</h2>
+            <p>"And on that Farm he had a ${this.animaltype} EIEIO</p>
+            <p>With a ${this.noise} ${this.noise} here and a ${this.noise} ${this.noise} there</p>
+            <p>The ${this.animaltype} called ${this.name} ate ${this.portion} kg of ${this.food}.</p>`;
         }
     }
-    OldMacDonalds.Animals = Animals;
+    OldMacDonalds.Animal = Animal;
 })(OldMacDonalds || (OldMacDonalds = {}));
 //# sourceMappingURL=animals.js.map

@@ -15,19 +15,19 @@ var OldMacDonalds;
         foodstock;
         portion;
         noise;
-        constructor(_animaltype, _name, _food, _foodstock, _portion, _noise) {
-            this.animaltype = _animaltype;
-            this.name = _name;
-            this.food = _food;
-            this.foodstock = _foodstock;
-            this.portion = _portion;
-            this.noise = _noise;
+        constructor(animaltype, name, food, foodstock, portion, noise) {
+            this.animaltype = animaltype;
+            this.name = name;
+            this.food = food;
+            this.foodstock = foodstock;
+            this.portion = portion;
+            this.noise = noise;
         }
         singSong() {
-            return `<h2>${this.name} the ${this.animaltype}</h2>
+            return `<h3>${this.name} the ${this.animaltype}</h3>
             <p>"And on that Farm he had a ${this.animaltype} EIEIO</p>
             <p>With a ${this.noise} ${this.noise} here and a ${this.noise} ${this.noise} there</p>
-            <p>The ${this.animaltype} called ${this.name} ate ${this.portion} kg of ${this.food}.</p>`;
+            <p>The ${this.animaltype} called ${this.name} ate ${this.foodstock} kg of ${this.food}.</p>`;
         }
     }
     OldMacDonalds.Animal = Animal;

@@ -3,19 +3,19 @@ Aufgabe: <L09.1_Luftfahrt>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
 Datum: <23.05.2023>
-Quellen: <inspired by Marie Eckl>
+Quellen: <inspired by Marie Eckl, CHATGPT>
 */
 
 namespace OldMacDonalds {
 
     window.addEventListener("load", handleLoad);
 
-    let cow: Animal = new Animal("Cow", "Magda", "Grass", 120, 40, "Mooo");
+    let cow: Animal = new Animal("Cow", "Moses", "Hay", 20, 120, "Mooo");
     console.log(cow)   
-    let pig: Animal = new Animal("Pig", "Edgar", "Junk", 95, 20, "OINK");
-    let chicken: Animal = new Animal("Chicken", "Arnold", "Grain", 50, 10, "BOGBOG");
-    let cat: Animal = new Animal("Cat", "Karl", "Meat", 65, 8, "MIAAAU");
-    let horse: Animal = new Animal("Horse", "Carla", "Grass", 65, 8, "WIIIUUU");
+    let pig: Animal = new Animal("Pig", "Napoleon", "Junk", 5, 55, "OINK");
+    let chicken: Animal = new Animal("Chicken", "Arnold", "Grain", 1, 20, "BOGBOG");
+    let cat: Animal = new Animal("Cat", "Cat", "Meat",8, 35, "MIAAAU");
+    let horse: Animal = new Animal("Horse", "Boxer", "Grass", 10, 47, "WIIIUUU");
     let allAnimals: Animal[] = [cow, pig, chicken, cat, horse];
   
     function handleLoad(_event: Event): void {
@@ -36,22 +36,29 @@ namespace OldMacDonalds {
     };
   
     function newDay(): void {
-      for (let animal of allAnimals) {
-        animal.portion -= animal.foodstock;
-      }
-  
-      let storageDiv: HTMLElement = document.getElementById("Storage") as HTMLDivElement;
-      storageDiv.innerHTML = `<h3>Food Storage</h3>
-        ${allAnimals[0].portion}kg of ${allAnimals[0].foodstock}<br>
-        ${allAnimals[1].portion}kg of ${allAnimals[1].foodstock}<br>
-        ${allAnimals[2].portion}kg of ${allAnimals[2].foodstock}<br>
-        ${allAnimals[3].portion}kg of ${allAnimals[3].foodstock}<br>
-        ${allAnimals[4].portion}kg of ${allAnimals[4].foodstock}<br>`;
-  
-
-     if (allAnimals[0].foodstock <= 0) {
-    alert:(" LANDWIRTSCHAFTLICHER GUTSHERREHOF wird zu FARM DER TIERE- GENOSSENSCHAFTSBETRIEB");
-    window.location.reload()
-            } 
+        let isOutOfFood = false;
+      
+        for (let animal of allAnimals) {
+          if (animal.foodstock > 0) {
+            animal.portion -= animal.foodstock;
+            animal.foodstock = 0;
+          } else {
+            isOutOfFood = true;
+          }
         }
+      
+        let storageDiv: HTMLElement = document.getElementById("Storage") as HTMLDivElement;
+        storageDiv.innerHTML = `<h3>Food Storage</h3>
+          ${allAnimals[0].portion}kg of ${allAnimals[0].food}<br>
+          ${allAnimals[1].portion}kg of ${allAnimals[1].food}<br>
+          ${allAnimals[2].portion}kg of ${allAnimals[2].food}<br>
+          ${allAnimals[3].portion}kg of ${allAnimals[3].food}<br>
+          ${allAnimals[4].portion}kg of ${allAnimals[4].food}<br>`;
+      
+        if (isOutOfFood) {
+          alert("LANDWIRTSCHAFTLICHER GUTSHERREHOF wird zu FARM DER TIERE- GENOSSENSCHAFTSBETRIEB");
+          window.location.reload();
+        }
+      }
+      
     }

@@ -7,12 +7,12 @@ Quellen: <insects and windsock inspired by Marie Eckl>
 */
 // Handle-load function
 namespace LuftfahrtClasses {
-    interface Vector{
+ /*    interface Vector{
       x: number;
       y: number;
-  }
+  } */
   window.addEventListener("load",handleLoad);
-  let crc2: CanvasRenderingContext2D;
+  export let crc2: CanvasRenderingContext2D;
   let golden: number = 0.62;
   
   function handleLoad(_event:Event):void {
@@ -315,9 +315,9 @@ namespace LuftfahrtClasses {
     }
   }
   
-  function drawInsect(_position: Vector) {
+ /*  function drawInsect(_position: Vector) {
   
-    // Körper
+     Körper
     let radius: number = 3;
     crc2.beginPath();
     crc2.fillStyle = "red";
@@ -325,7 +325,7 @@ namespace LuftfahrtClasses {
     crc2.fill();
     crc2.closePath(); 
   
-    // Beine
+     Beine
     crc2.save();
     crc2.beginPath();
     crc2.strokeStyle = "black";
@@ -339,6 +339,6 @@ namespace LuftfahrtClasses {
     crc2.lineTo(_position.x - 1.5, _position.y + 2);
     crc2.stroke();
     crc2.restore();
-  };
+  }; */
   }
   

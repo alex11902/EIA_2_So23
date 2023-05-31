@@ -11,6 +11,7 @@ namespace LuftfahrtClasses {
   window.addEventListener("load",handleLoad);
   export let crc2: CanvasRenderingContext2D;
   let golden: number = 0.62;
+  let background: ImageData;
   
   function handleLoad(_event:Event):void {
   let canvas: HTMLCanvasElement | null= document.querySelector("canvas");
@@ -24,48 +25,60 @@ namespace LuftfahrtClasses {
       crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
   
       backgroundgradient();
-      /*drawSun({x:700,y:70});
-      drawClouds({ x:50, y:125}, {x:150, y:50});
-      drawClouds({ x:300, y:100}, {x:150, y:50});
-      drawClouds({ x:600, y:125}, {x:150, y:50});
-      drawMountains({x:0,  y: horizon}, 75, 200, "grey", "white");
-      drawMountains({x:0,  y: horizon}, 50, 150, "grey", "lightgrey");
-      drawTrees(horizon);
-      drawKiosk({x:680, y:360});
-       drawParaglider({x:180, y:70});
-      drawParaglider({x:300, y:180});
-      drawParaglider({x:400, y:250}); 
-      drawLandingPlace({x:480, y:400});
-      drawfrontMountain();
-      drawWindsock({ x:550, y: 390 });
-      drawGrass(150);
-      */
+    
      drawStaticObjects(horizon);
+
+     background = crc2.getImageData(0, 0, crc2.canvas.width,crc2.canvas.height);
+     crc2.putImageData(background, 0,0);
      console.log(drawStaticObjects);
+
       let insect: Insect = new Insect(1);
             console.log(insect)
             createInsects(5);
             Insects.push(insect);
-            window.requestAnimationFrame(update);
-             window.setInterval(update, 20);
+      window.requestAnimationFrame(update);
+      window.setInterval(update, 20);
              
       
   }
 
   function drawStaticObjects(horizon: number): void {
     backgroundgradient();
-    drawSun({ x: 700, y: 70 });
-    drawClouds({ x: 50, y: 125 }, { x: 150, y: 50 });
-    drawClouds({ x: 300, y: 100 }, { x: 150, y: 50 });
-    drawClouds({ x: 600, y: 125 }, { x: 150, y: 50 });
-    drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
-    drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
-    drawTrees(horizon);
-    drawKiosk({ x: 680, y: 360 });
-    drawLandingPlace({ x: 480, y: 400 });
-    drawfrontMountain();
-    drawWindsock({ x: 550, y: 390 });
-    drawGrass(150);
+      let sunPosition: Vector = new Vector(700, 70);
+  drawSun(sunPosition);
+
+  let cloud1Position: Vector = new Vector(50, 125);
+  let cloud1Size: Vector = new Vector(150, 50);
+  drawClouds(cloud1Position, cloud1Size);
+
+  let cloud2Position: Vector = new Vector(300, 100);
+  let cloud2Size: Vector = new Vector(150, 50);
+  drawClouds(cloud2Position, cloud2Size);
+
+  let cloud3Position: Vector = new Vector(600, 125);
+  let cloud3Size: Vector = new Vector(150, 50);
+  drawClouds(cloud3Position, cloud3Size);
+
+  let mountainsPosition: Vector = new Vector(0, horizon);
+  drawMountains(mountainsPosition, 75, 200, "grey", "white");
+
+  let smallerMountainsPosition: Vector = new Vector(0, horizon);
+  drawMountains(smallerMountainsPosition, 50, 150, "grey", "lightgrey");
+
+  drawTrees(horizon);
+
+  let kioskPosition: Vector = new Vector(680, 360);
+  drawKiosk(kioskPosition);
+
+  let landingPlacePosition: Vector = new Vector(480, 400);
+  drawLandingPlace(landingPlacePosition);
+
+  drawfrontMountain();
+
+  let windsockPosition: Vector = new Vector(550, 390);
+  drawWindsock(windsockPosition);
+
+  drawGrass(150);
   }
   
   
@@ -302,13 +315,13 @@ namespace LuftfahrtClasses {
   
   function update(): void {
     crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+    crc2.putImageData(background, 0,0);
   
     for (let insect of Insects) {
-      insect.move(1 / 50);
+      insect.move(1 / 70);
       insect.draw();
     }
-    //ship.draw();
-    //handleCollisions();
+    
 }
   }
   

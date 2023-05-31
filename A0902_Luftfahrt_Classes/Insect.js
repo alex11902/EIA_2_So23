@@ -33,27 +33,27 @@ var LuftfahrtClasses;
         }
         draw() {
             // console.log("Insect draw");
-            // Körper
             let radius = 3;
+            LuftfahrtClasses.crc2.save();
+            // Körper
             LuftfahrtClasses.crc2.beginPath();
             LuftfahrtClasses.crc2.fillStyle = "red";
             LuftfahrtClasses.crc2.arc(this.position.x, this.position.y, radius, 0, Math.PI * 2);
             LuftfahrtClasses.crc2.fill();
             LuftfahrtClasses.crc2.closePath();
             // Beine
-            LuftfahrtClasses.crc2.save();
             LuftfahrtClasses.crc2.translate(this.position.x, this.position.y);
             LuftfahrtClasses.crc2.scale(this.size, this.size);
             LuftfahrtClasses.crc2.beginPath();
             LuftfahrtClasses.crc2.strokeStyle = "black";
-            LuftfahrtClasses.crc2.moveTo(this.position.x, this.position.y + 1);
-            LuftfahrtClasses.crc2.lineTo(this.position.x + 3, this.position.y + 7);
-            LuftfahrtClasses.crc2.moveTo(this.position.x, this.position.y);
-            LuftfahrtClasses.crc2.lineTo(this.position.x - 3, this.position.y + 7);
-            LuftfahrtClasses.crc2.moveTo(this.position.x, this.position.y);
-            LuftfahrtClasses.crc2.lineTo(this.position.x + 1, this.position.y + 2);
-            LuftfahrtClasses.crc2.moveTo(this.position.x, this.position.y);
-            LuftfahrtClasses.crc2.lineTo(this.position.x - 1.5, this.position.y + 2);
+            LuftfahrtClasses.crc2.moveTo(0, 1);
+            LuftfahrtClasses.crc2.lineTo(3, 7);
+            LuftfahrtClasses.crc2.moveTo(0, 0);
+            LuftfahrtClasses.crc2.lineTo(-3, 7);
+            LuftfahrtClasses.crc2.moveTo(0, 0);
+            LuftfahrtClasses.crc2.lineTo(1, 2);
+            LuftfahrtClasses.crc2.moveTo(0, 0);
+            LuftfahrtClasses.crc2.lineTo(-1.5, 2);
             LuftfahrtClasses.crc2.stroke();
             LuftfahrtClasses.crc2.restore();
         }

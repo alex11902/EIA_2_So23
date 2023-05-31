@@ -11,6 +11,7 @@ var LuftfahrtClasses;
 (function (LuftfahrtClasses) {
     window.addEventListener("load", handleLoad);
     let golden = 0.62;
+    let background;
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)
@@ -21,23 +22,9 @@ var LuftfahrtClasses;
         canvas = document.querySelector("canvas");
         LuftfahrtClasses.crc2 = canvas.getContext("2d");
         backgroundgradient();
-        /*drawSun({x:700,y:70});
-        drawClouds({ x:50, y:125}, {x:150, y:50});
-        drawClouds({ x:300, y:100}, {x:150, y:50});
-        drawClouds({ x:600, y:125}, {x:150, y:50});
-        drawMountains({x:0,  y: horizon}, 75, 200, "grey", "white");
-        drawMountains({x:0,  y: horizon}, 50, 150, "grey", "lightgrey");
-        drawTrees(horizon);
-        drawKiosk({x:680, y:360});
-         drawParaglider({x:180, y:70});
-        drawParaglider({x:300, y:180});
-        drawParaglider({x:400, y:250});
-        drawLandingPlace({x:480, y:400});
-        drawfrontMountain();
-        drawWindsock({ x:550, y: 390 });
-        drawGrass(150);
-        */
         drawStaticObjects(horizon);
+        background = LuftfahrtClasses.crc2.getImageData(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
+        LuftfahrtClasses.crc2.putImageData(background, 0, 0);
         console.log(drawStaticObjects);
         let insect = new LuftfahrtClasses.Insect(1);
         console.log(insect);
@@ -48,17 +35,29 @@ var LuftfahrtClasses;
     }
     function drawStaticObjects(horizon) {
         backgroundgradient();
-        drawSun({ x: 700, y: 70 });
-        drawClouds({ x: 50, y: 125 }, { x: 150, y: 50 });
-        drawClouds({ x: 300, y: 100 }, { x: 150, y: 50 });
-        drawClouds({ x: 600, y: 125 }, { x: 150, y: 50 });
-        drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
-        drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
+        let sunPosition = new LuftfahrtClasses.Vector(700, 70);
+        drawSun(sunPosition);
+        let cloud1Position = new LuftfahrtClasses.Vector(50, 125);
+        let cloud1Size = new LuftfahrtClasses.Vector(150, 50);
+        drawClouds(cloud1Position, cloud1Size);
+        let cloud2Position = new LuftfahrtClasses.Vector(300, 100);
+        let cloud2Size = new LuftfahrtClasses.Vector(150, 50);
+        drawClouds(cloud2Position, cloud2Size);
+        let cloud3Position = new LuftfahrtClasses.Vector(600, 125);
+        let cloud3Size = new LuftfahrtClasses.Vector(150, 50);
+        drawClouds(cloud3Position, cloud3Size);
+        let mountainsPosition = new LuftfahrtClasses.Vector(0, horizon);
+        drawMountains(mountainsPosition, 75, 200, "grey", "white");
+        let smallerMountainsPosition = new LuftfahrtClasses.Vector(0, horizon);
+        drawMountains(smallerMountainsPosition, 50, 150, "grey", "lightgrey");
         drawTrees(horizon);
-        drawKiosk({ x: 680, y: 360 });
-        drawLandingPlace({ x: 480, y: 400 });
+        let kioskPosition = new LuftfahrtClasses.Vector(680, 360);
+        drawKiosk(kioskPosition);
+        let landingPlacePosition = new LuftfahrtClasses.Vector(480, 400);
+        drawLandingPlace(landingPlacePosition);
         drawfrontMountain();
-        drawWindsock({ x: 550, y: 390 });
+        let windsockPosition = new LuftfahrtClasses.Vector(550, 390);
+        drawWindsock(windsockPosition);
         drawGrass(150);
     }
     function backgroundgradient() {
@@ -254,12 +253,11 @@ var LuftfahrtClasses;
     }
     function update() {
         LuftfahrtClasses.crc2.clearRect(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
+        LuftfahrtClasses.crc2.putImageData(background, 0, 0);
         for (let insect of LuftfahrtClasses.Insects) {
-            insect.move(1 / 50);
+            insect.move(1 / 70);
             insect.draw();
         }
-        //ship.draw();
-        //handleCollisions();
     }
 })(LuftfahrtClasses || (LuftfahrtClasses = {}));
 //# sourceMappingURL=Main.js.map

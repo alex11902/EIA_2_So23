@@ -13,37 +13,54 @@ namespace LuftfahrtClasses {
         this.size = _size;
     }
     move(_timeslice: number): void{
-        console.log("Insect move");
-        let offset
+       // console.log("Insect move");
+        let offset: Vector = new Vector (this.velosity.x,this.velosity.y);
+        offset.scale(_timeslice);
+        this.position.add(offset);
+        // wenn position canvas verlässt
+        if (this.position.x < 0)
+        //addend
+        this.position.x += crc2.canvas.width;
+        if (this.position.y < 0)
+        //addend
+        this.position.y += crc2.canvas.height;
+        if (this.position.x > crc2.canvas.width)
+        //addend
+        this.position.x -= crc2.canvas.width;
+        if (this.position.y > crc2.canvas.height)
+        //addend
+        this.position.y -= crc2.canvas.height;
+    
+    
     }
 
 
 
 
     draw():void{
-        console.log("Insect draw");
+   // console.log("Insect draw");
          // Körper
     let radius: number = 3;
     crc2.beginPath();
     crc2.fillStyle = "red";
-    crc2.arc(this._position.x, this._position.y, radius, 0, Math.PI * 2);
+    crc2.arc(this.position.x, this.position.y, radius, 0, Math.PI * 2);
     crc2.fill();
     crc2.closePath(); 
   
     // Beine
     crc2.save();
-    crc2.translate(this._position.x,this. _position.y);
+    crc2.translate(this.position.x,this. position.y);
     crc2.scale(this.size, this.size)
     crc2.beginPath();
     crc2.strokeStyle = "black";
-    crc2.moveTo(this._position.x,this. _position.y + 1);
-    crc2.lineTo(this._position.x + 3, this._position.y + 7);
-    crc2.moveTo(this._position.x, this._position.y);
-    crc2.lineTo(this._position.x - 3, this._position.y + 7);
-    crc2.moveTo(this._position.x, this._position.y);
-    crc2.lineTo(this._position.x + 1,this. _position.y + 2);
-    crc2.moveTo(this._position.x,this. _position.y);
-    crc2.lineTo(this._position.x - 1.5,this. _position.y + 2);
+    crc2.moveTo(this.position.x,this. position.y + 1);
+    crc2.lineTo(this.position.x + 3, this.position.y + 7);
+    crc2.moveTo(this.position.x, this.position.y);
+    crc2.lineTo(this.position.x - 3, this.position.y + 7);
+    crc2.moveTo(this.position.x, this.position.y);
+    crc2.lineTo(this.position.x + 1,this. position.y + 2);
+    crc2.moveTo(this.position.x,this. position.y);
+    crc2.lineTo(this.position.x - 1.5,this. position.y + 2);
     crc2.stroke();
     crc2.restore();
   };

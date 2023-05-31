@@ -9,10 +9,6 @@ Quellen: <insects and windsock inspired by Marie Eckl>
 // Handle-load function
 var LuftfahrtClasses;
 (function (LuftfahrtClasses) {
-    /*    interface Vector{
-         x: number;
-         y: number;
-     } */
     window.addEventListener("load", handleLoad);
     let golden = 0.62;
     function handleLoad(_event) {
@@ -25,6 +21,33 @@ var LuftfahrtClasses;
         canvas = document.querySelector("canvas");
         LuftfahrtClasses.crc2 = canvas.getContext("2d");
         backgroundgradient();
+        /*drawSun({x:700,y:70});
+        drawClouds({ x:50, y:125}, {x:150, y:50});
+        drawClouds({ x:300, y:100}, {x:150, y:50});
+        drawClouds({ x:600, y:125}, {x:150, y:50});
+        drawMountains({x:0,  y: horizon}, 75, 200, "grey", "white");
+        drawMountains({x:0,  y: horizon}, 50, 150, "grey", "lightgrey");
+        drawTrees(horizon);
+        drawKiosk({x:680, y:360});
+         drawParaglider({x:180, y:70});
+        drawParaglider({x:300, y:180});
+        drawParaglider({x:400, y:250});
+        drawLandingPlace({x:480, y:400});
+        drawfrontMountain();
+        drawWindsock({ x:550, y: 390 });
+        drawGrass(150);
+        */
+        drawStaticObjects(horizon);
+        console.log(drawStaticObjects);
+        let insect = new LuftfahrtClasses.Insect(1);
+        console.log(insect);
+        LuftfahrtClasses.createInsects(5);
+        LuftfahrtClasses.Insects.push(insect);
+        window.requestAnimationFrame(update);
+        window.setInterval(update, 20);
+    }
+    function drawStaticObjects(horizon) {
+        backgroundgradient();
         drawSun({ x: 700, y: 70 });
         drawClouds({ x: 50, y: 125 }, { x: 150, y: 50 });
         drawClouds({ x: 300, y: 100 }, { x: 150, y: 50 });
@@ -33,20 +56,10 @@ var LuftfahrtClasses;
         drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
         drawTrees(horizon);
         drawKiosk({ x: 680, y: 360 });
-        drawParaglider({ x: 180, y: 70 });
-        drawParaglider({ x: 300, y: 180 });
-        drawParaglider({ x: 400, y: 250 });
         drawLandingPlace({ x: 480, y: 400 });
         drawfrontMountain();
         drawWindsock({ x: 550, y: 390 });
         drawGrass(150);
-        drawInsect({ x: 600, y: 400 });
-        drawInsect({ x: 700, y: 450 });
-        drawInsect({ x: 100, y: 400 });
-        drawInsect({ x: 200, y: 470 });
-        drawInsect({ x: 400, y: 450 });
-        let insect = new LuftfahrtClasses.Insect(1);
-        console.log(insect);
     }
     function backgroundgradient() {
         // Define linear Gradient
@@ -190,30 +203,6 @@ var LuftfahrtClasses;
         LuftfahrtClasses.crc2.fillStyle = hutColor;
         LuftfahrtClasses.crc2.fillRect(hutX, hutY, hutWidth, hutHeight);
     }
-    function drawParaglider(_position) {
-        // Farben für den Fallschirmflieger festlegen
-        const parachuteColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-        const bodyColor = "#FFFF00"; // Gelb
-        // Größe des Fallschirmflieger festlegen
-        const paragliderWidth = 50;
-        const paragliderHeight = 50;
-        LuftfahrtClasses.crc2.save();
-        // Fallschirm zeichnen
-        LuftfahrtClasses.crc2.fillStyle = parachuteColor;
-        LuftfahrtClasses.crc2.beginPath();
-        LuftfahrtClasses.crc2.arc(_position.x, _position.y, paragliderWidth / 2, 0, Math.PI * 2);
-        LuftfahrtClasses.crc2.closePath();
-        LuftfahrtClasses.crc2.fill();
-        // Körper zeichnen
-        LuftfahrtClasses.crc2.fillStyle = bodyColor;
-        LuftfahrtClasses.crc2.beginPath();
-        LuftfahrtClasses.crc2.moveTo(_position.x, _position.y - paragliderHeight / 2);
-        LuftfahrtClasses.crc2.lineTo(_position.x - paragliderWidth / 2, _position.y + paragliderHeight / 2);
-        LuftfahrtClasses.crc2.lineTo(_position.x + paragliderWidth / 2, _position.y + paragliderHeight / 2);
-        LuftfahrtClasses.crc2.closePath();
-        LuftfahrtClasses.crc2.fill();
-        LuftfahrtClasses.crc2.restore();
-    }
     function drawLandingPlace(_position) {
         LuftfahrtClasses.crc2.beginPath();
         LuftfahrtClasses.crc2.ellipse(_position.x, _position.y, 30, 100, Math.PI / 2, 0, 2 * Math.PI);
@@ -263,30 +252,14 @@ var LuftfahrtClasses;
             LuftfahrtClasses.crc2.stroke();
         }
     }
-    /*  function drawInsect(_position: Vector) {
-     
-        Körper
-       let radius: number = 3;
-       crc2.beginPath();
-       crc2.fillStyle = "red";
-       crc2.arc(_position.x, _position.y, radius, 0, Math.PI * 2);
-       crc2.fill();
-       crc2.closePath();
-     
-        Beine
-       crc2.save();
-       crc2.beginPath();
-       crc2.strokeStyle = "black";
-       crc2.moveTo(_position.x, _position.y + 1);
-       crc2.lineTo(_position.x + 3, _position.y + 7);
-       crc2.moveTo(_position.x, _position.y);
-       crc2.lineTo(_position.x - 3, _position.y + 7);
-       crc2.moveTo(_position.x, _position.y);
-       crc2.lineTo(_position.x + 1, _position.y + 2);
-       crc2.moveTo(_position.x, _position.y);
-       crc2.lineTo(_position.x - 1.5, _position.y + 2);
-       crc2.stroke();
-       crc2.restore();
-     }; */
+    function update() {
+        LuftfahrtClasses.crc2.clearRect(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
+        for (let insect of LuftfahrtClasses.Insects) {
+            insect.move(1 / 50);
+            insect.draw();
+        }
+        //ship.draw();
+        //handleCollisions();
+    }
 })(LuftfahrtClasses || (LuftfahrtClasses = {}));
 //# sourceMappingURL=Main.js.map

@@ -19,6 +19,14 @@ var A09_Asteroids;
             this.x += _addend.x;
             this.y -= _addend.y;
         }
+        random(_minLength, _maxLength) {
+            // Länge und Richtung angeben
+            let length = _minLength + Math.random() * (_maxLength - _minLength);
+            let direction = Math.random() * 2 * Math.PI;
+            // Katheten der Länge, Richtung hypothenuse Werte zw 1 und-1, Vector erstellt
+            this.set(Math.cos(direction), Math.sin(direction));
+            this.scale(length);
+        }
     }
     A09_Asteroids.Vector = Vector;
 })(A09_Asteroids || (A09_Asteroids = {}));

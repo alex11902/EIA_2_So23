@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jest-canvas-mock": "^2.5.1"
+  }
+}

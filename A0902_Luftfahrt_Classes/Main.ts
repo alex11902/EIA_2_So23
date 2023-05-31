@@ -7,10 +7,7 @@ Quellen: <insects and windsock inspired by Marie Eckl>
 */
 // Handle-load function
 namespace LuftfahrtClasses {
- /*    interface Vector{
-      x: number;
-      y: number;
-  } */
+ 
   window.addEventListener("load",handleLoad);
   export let crc2: CanvasRenderingContext2D;
   let golden: number = 0.62;
@@ -27,7 +24,7 @@ namespace LuftfahrtClasses {
       crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
   
       backgroundgradient();
-      drawSun({x:700,y:70});
+      /*drawSun({x:700,y:70});
       drawClouds({ x:50, y:125}, {x:150, y:50});
       drawClouds({ x:300, y:100}, {x:150, y:50});
       drawClouds({ x:600, y:125}, {x:150, y:50});
@@ -35,22 +32,42 @@ namespace LuftfahrtClasses {
       drawMountains({x:0,  y: horizon}, 50, 150, "grey", "lightgrey");
       drawTrees(horizon);
       drawKiosk({x:680, y:360});
-      drawParaglider({x:180, y:70});
+       drawParaglider({x:180, y:70});
       drawParaglider({x:300, y:180});
-      drawParaglider({x:400, y:250});
+      drawParaglider({x:400, y:250}); 
       drawLandingPlace({x:480, y:400});
       drawfrontMountain();
       drawWindsock({ x:550, y: 390 });
       drawGrass(150);
-      drawInsect({ x: 600, y: 400 });
-      drawInsect({ x: 700, y: 450 });
-      drawInsect({ x: 100, y: 400 });
-      drawInsect({ x: 200, y: 470 }); 
-      drawInsect({ x: 400, y: 450 });
+      */
+     drawStaticObjects(horizon);
+     console.log(drawStaticObjects);
       let insect: Insect = new Insect(1);
             console.log(insect)
+            createInsects(5);
+            Insects.push(insect);
+            window.requestAnimationFrame(update);
+             window.setInterval(update, 20);
+             
       
   }
+
+  function drawStaticObjects(horizon: number): void {
+    backgroundgradient();
+    drawSun({ x: 700, y: 70 });
+    drawClouds({ x: 50, y: 125 }, { x: 150, y: 50 });
+    drawClouds({ x: 300, y: 100 }, { x: 150, y: 50 });
+    drawClouds({ x: 600, y: 125 }, { x: 150, y: 50 });
+    drawMountains({ x: 0, y: horizon }, 75, 200, "grey", "white");
+    drawMountains({ x: 0, y: horizon }, 50, 150, "grey", "lightgrey");
+    drawTrees(horizon);
+    drawKiosk({ x: 680, y: 360 });
+    drawLandingPlace({ x: 480, y: 400 });
+    drawfrontMountain();
+    drawWindsock({ x: 550, y: 390 });
+    drawGrass(150);
+  }
+  
   
     function backgroundgradient() {
       // Define linear Gradient
@@ -222,38 +239,6 @@ namespace LuftfahrtClasses {
       crc2.fillStyle = hutColor;
       crc2.fillRect(hutX, hutY, hutWidth, hutHeight);
     }
-    function drawParaglider(_position:Vector) {
-      // Farben für den Fallschirmflieger festlegen
-      const parachuteColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      const bodyColor = "#FFFF00"; // Gelb
-  
-      // Größe des Fallschirmflieger festlegen
-      const paragliderWidth = 50;
-      const paragliderHeight = 50;
-  
-      crc2.save()
-      // Fallschirm zeichnen
-      crc2.fillStyle = parachuteColor;
-      crc2.beginPath();
-      crc2.arc(_position.x, _position.y, paragliderWidth / 2, 0, Math.PI * 2);
-      crc2.closePath();
-      crc2.fill();
-    // Körper zeichnen
-      crc2.fillStyle = bodyColor;
-      crc2.beginPath();
-      crc2.moveTo(_position.x, _position.y - paragliderHeight / 2);
-      crc2.lineTo(
-        _position.x - paragliderWidth / 2,
-        _position.y + paragliderHeight / 2
-      );
-      crc2.lineTo(
-        _position.x + paragliderWidth / 2,
-        _position.y + paragliderHeight / 2
-      );
-      crc2.closePath();
-      crc2.fill();
-      crc2.restore();
-    }
   
     function drawLandingPlace(_position: Vector) {
       crc2.beginPath();
@@ -315,30 +300,15 @@ namespace LuftfahrtClasses {
     }
   }
   
- /*  function drawInsect(_position: Vector) {
+  function update(): void {
+    crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
   
-     Körper
-    let radius: number = 3;
-    crc2.beginPath();
-    crc2.fillStyle = "red";
-    crc2.arc(_position.x, _position.y, radius, 0, Math.PI * 2);
-    crc2.fill();
-    crc2.closePath(); 
-  
-     Beine
-    crc2.save();
-    crc2.beginPath();
-    crc2.strokeStyle = "black";
-    crc2.moveTo(_position.x, _position.y + 1);
-    crc2.lineTo(_position.x + 3, _position.y + 7);
-    crc2.moveTo(_position.x, _position.y);
-    crc2.lineTo(_position.x - 3, _position.y + 7);
-    crc2.moveTo(_position.x, _position.y);
-    crc2.lineTo(_position.x + 1, _position.y + 2);
-    crc2.moveTo(_position.x, _position.y);
-    crc2.lineTo(_position.x - 1.5, _position.y + 2);
-    crc2.stroke();
-    crc2.restore();
-  }; */
+    for (let insect of Insects) {
+      insect.move(1 / 50);
+      insect.draw();
+    }
+    //ship.draw();
+    //handleCollisions();
+}
   }
   

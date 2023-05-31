@@ -15,6 +15,10 @@ var LuftfahrtClasses;
             this.x *= _factor;
             this.y *= _factor;
         }
+        add(_addend) {
+            this.x += _addend.x;
+            this.y += _addend.y;
+        }
         random(_minLength, _maxLength) {
             let length = _minLength + Math.random() * (_maxLength - _minLength);
             let direction = Math.random() * 2 * Math.PI;

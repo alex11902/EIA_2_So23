@@ -31,4 +31,4 @@ namespace LuftfahrtClasses{
           this.scale(length);
         }
       }
-      
+    }

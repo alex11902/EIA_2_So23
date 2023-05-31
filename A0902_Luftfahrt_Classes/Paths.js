@@ -1,8 +1,8 @@
 "use strict";
 var LuftfahrtClasses;
 (function (LuftfahrtClasses) {
-    // export let ParagliderForms
     LuftfahrtClasses.Insects = [];
+    LuftfahrtClasses.HotAirBalloons = [];
     // ufoPath = createUfoPath();
     function createInsects(numInsects) {
         const maxInsects = 5; // Maximale Anzahl von Insekten im Bild
@@ -12,5 +12,13 @@ var LuftfahrtClasses;
         }
     }
     LuftfahrtClasses.createInsects = createInsects;
+    function createHotairballoons(numHotairballoons) {
+        const maxBalloons = 5; // Maximale Anzahl von Insekten im Bild
+        for (let i = 0; i < numHotairballoons && LuftfahrtClasses.Insects.length < maxBalloons; i++) {
+            let hotairballoon = new LuftfahrtClasses.HotAirBalloon();
+            LuftfahrtClasses.HotAirBalloons.push(hotairballoon);
+        }
+    }
+    LuftfahrtClasses.createHotairballoons = createHotairballoons;
 })(LuftfahrtClasses || (LuftfahrtClasses = {}));
 //# sourceMappingURL=Paths.js.map

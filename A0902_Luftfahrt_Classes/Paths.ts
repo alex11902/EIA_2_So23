@@ -1,10 +1,8 @@
 namespace LuftfahrtClasses{
 
-    
-
-   // export let ParagliderForms
-
    export let Insects: Insect[] = [];
+   export let HotAirBalloons: HotAirBalloon[] = [];
+
   // ufoPath = createUfoPath();
  export function createInsects(numInsects: number): void {
     const maxInsects = 5; // Maximale Anzahl von Insekten im Bild
@@ -14,6 +12,13 @@ namespace LuftfahrtClasses{
       Insects.push(insect);
     }
   }
+  export function createHotairballoons(numHotairballoons: number): void {
+    const maxBalloons = 5; // Maximale Anzahl von Insekten im Bild
+  
+    for (let i = 0; i < numHotairballoons && Insects.length < maxBalloons; i++) {
+      let hotairballoon: HotAirBalloon = new HotAirBalloon();
+      HotAirBalloons.push(hotairballoon);
+    }
 }
 
 

@@ -43,7 +43,7 @@ body {
   font-family: bungee, sans-serif;
   font-weight: 100;
   text-transform: uppercase;
-  font-size: calc(2rem + 5vw);
+  font-size: calc(0.5rem + 5vw);
   text-align: center;
   margin: 0;
   color: var(--color-primary);
@@ -127,6 +127,6 @@ body {
    border-radius: 2%;
    border-style:double;
    border-width: 20px;
-   border-color: aqua;
+   border-color: rgb(54, 66, 135);
    
 }

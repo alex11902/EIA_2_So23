@@ -3,8 +3,8 @@
 Aufgabe: <L09.2_Luftfahrt_Classes>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
-Datum: <21.05.2023>
-Quellen: <insects and windsock inspired by Marie Eckl>
+Datum: <31.05.2023>
+Quellen: <insects and windsock inspired by Marie Eckl, chat GPT, mozilla.org>
 */
 // Handle-load function
 var LuftfahrtClasses;
@@ -26,6 +26,14 @@ var LuftfahrtClasses;
         background = LuftfahrtClasses.crc2.getImageData(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
         LuftfahrtClasses.crc2.putImageData(background, 0, 0);
         console.log(drawStaticObjects);
+        let hotairballoon = new LuftfahrtClasses.HotAirBalloon(1);
+        console.log(hotairballoon);
+        LuftfahrtClasses.createHotairballoons(1);
+        LuftfahrtClasses.HotAirBalloons.push(hotairballoon);
+        /*   let paraglider: Paraglider = new Paraglider(5);
+                  console.log(insect)
+                    createParaglider(1);
+                    Paragliders.push(paraglider);   */
         let insect = new LuftfahrtClasses.Insect(1);
         console.log(insect);
         LuftfahrtClasses.createInsects(5);
@@ -55,7 +63,7 @@ var LuftfahrtClasses;
         drawKiosk(kioskPosition);
         let landingPlacePosition = new LuftfahrtClasses.Vector(480, 400);
         drawLandingPlace(landingPlacePosition);
-        drawfrontMountain();
+        drawfrontMountain("grey", "lightgrey");
         let windsockPosition = new LuftfahrtClasses.Vector(550, 390);
         drawWindsock(windsockPosition);
         drawGrass(150);
@@ -209,14 +217,19 @@ var LuftfahrtClasses;
         LuftfahrtClasses.crc2.fillStyle = "HSLA(111,47%,56%)";
         LuftfahrtClasses.crc2.fill();
     }
-    function drawfrontMountain() {
+    function drawfrontMountain(_colorLow, _colorHigh) {
+        LuftfahrtClasses.crc2.save();
         LuftfahrtClasses.crc2.beginPath();
         LuftfahrtClasses.crc2.moveTo(-50, 400);
         LuftfahrtClasses.crc2.lineTo(0, 50);
         LuftfahrtClasses.crc2.lineTo(250, 430);
         LuftfahrtClasses.crc2.closePath();
-        LuftfahrtClasses.crc2.fillStyle = "hsl(284,5%,53%)";
+        let gradient = LuftfahrtClasses.crc2.createLinearGradient(250, 430, 0, 50);
+        gradient.addColorStop(0, _colorLow);
+        gradient.addColorStop(0.7, _colorHigh);
+        LuftfahrtClasses.crc2.fillStyle = gradient;
         LuftfahrtClasses.crc2.fill();
+        LuftfahrtClasses.crc2.restore();
     }
     function drawWindsock(_position) {
         //Stab
@@ -254,6 +267,10 @@ var LuftfahrtClasses;
     function update() {
         LuftfahrtClasses.crc2.clearRect(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
         LuftfahrtClasses.crc2.putImageData(background, 0, 0);
+        for (let hotairballoon of LuftfahrtClasses.HotAirBalloons) {
+            hotairballoon.move(1 / 300);
+            hotairballoon.draw();
+        }
         for (let insect of LuftfahrtClasses.Insects) {
             insect.move(1 / 70);
             insect.draw();

@@ -17,8 +17,8 @@ var LuftfahrtClasses;
             const parachuteColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
             const bodyColor = "#FFFF00"; // Gelb
             // Größe des Fallschirmflieger festlegen
-            const paragliderWidth = 50;
-            const paragliderHeight = 50;
+            const paragliderWidth = 40;
+            const paragliderHeight = 40;
             LuftfahrtClasses.crc2.save();
             // Fallschirm zeichnen
             LuftfahrtClasses.crc2.fillStyle = parachuteColor;

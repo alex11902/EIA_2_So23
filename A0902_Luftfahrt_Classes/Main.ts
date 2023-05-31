@@ -2,8 +2,8 @@
 Aufgabe: <L09.2_Luftfahrt_Classes>
 Name: <Lara Sophia Elisabeth Halmosi>
 Matrikel: <271343>
-Datum: <21.05.2023>
-Quellen: <insects and windsock inspired by Marie Eckl>
+Datum: <31.05.2023>
+Quellen: <insects and windsock inspired by Marie Eckl, chat GPT, mozilla.org>
 */
 // Handle-load function
 namespace LuftfahrtClasses {
@@ -32,10 +32,19 @@ namespace LuftfahrtClasses {
      crc2.putImageData(background, 0,0);
      console.log(drawStaticObjects);
 
-      let insect: Insect = new Insect(1);
+      let hotairballoon: HotAirBalloon = new HotAirBalloon(1);  
+          console.log(hotairballoon)
+            createHotairballoons(1);
+            HotAirBalloons.push(hotairballoon);   
+/*   let paraglider: Paraglider = new Paraglider(5);  
+          console.log(insect)
+            createParaglider(1);
+            Paragliders.push(paraglider);   */  
+     let insect: Insect = new Insect(1);
             console.log(insect)
             createInsects(5);
             Insects.push(insect);
+    
       window.requestAnimationFrame(update);
       window.setInterval(update, 20);
              
@@ -64,6 +73,7 @@ namespace LuftfahrtClasses {
 
   let smallerMountainsPosition: Vector = new Vector(0, horizon);
   drawMountains(smallerMountainsPosition, 50, 150, "grey", "lightgrey");
+  
 
   drawTrees(horizon);
 
@@ -73,7 +83,7 @@ namespace LuftfahrtClasses {
   let landingPlacePosition: Vector = new Vector(480, 400);
   drawLandingPlace(landingPlacePosition);
 
-  drawfrontMountain();
+  drawfrontMountain( "grey", "lightgrey");
 
   let windsockPosition: Vector = new Vector(550, 390);
   drawWindsock(windsockPosition);
@@ -261,19 +271,22 @@ namespace LuftfahrtClasses {
       crc2.fill();
     }
   
-    function drawfrontMountain():void{
-    
+    function drawfrontMountain( _colorLow: string, _colorHigh: string):void{
+  crc2.save();  
   crc2.beginPath();
   crc2.moveTo(-50, 400); 
   crc2.lineTo(0, 50);
   crc2.lineTo(250, 430);
   crc2.closePath();
-  
-  crc2.fillStyle = "hsl(284,5%,53%)";
-  crc2.fill();
+  let gradient: CanvasGradient = crc2.createLinearGradient(250,430,0,50);
+    gradient.addColorStop(0, _colorLow);
+    gradient.addColorStop(0.7, _colorHigh);
+    
+    crc2.fillStyle = gradient;
+    crc2.fill();
+    crc2.restore();
     }
   
-   
     function drawWindsock(_position: Vector) {
   
       //Stab
@@ -316,11 +329,17 @@ namespace LuftfahrtClasses {
   function update(): void {
     crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     crc2.putImageData(background, 0,0);
+
+    for (let hotairballoon of HotAirBalloons) {
+      hotairballoon.move(1 / 300);
+      hotairballoon.draw();
+    }
   
     for (let insect of Insects) {
       insect.move(1 / 70);
       insect.draw();
     }
+   
     
 }
   }

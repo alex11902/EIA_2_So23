@@ -17,8 +17,8 @@ namespace LuftfahrtClasses {
       const bodyColor = "#FFFF00"; // Gelb
   
       // Größe des Fallschirmflieger festlegen
-      const paragliderWidth = 50;
-      const paragliderHeight = 50;
+      const paragliderWidth = 40;
+      const paragliderHeight = 40;
   
       crc2.save()
       // Fallschirm zeichnen

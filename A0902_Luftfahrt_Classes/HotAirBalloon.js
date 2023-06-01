@@ -6,9 +6,9 @@ var LuftfahrtClasses;
         velosity;
         constructor(_size) {
             console.log("Balloon constructor");
-            this.position = new LuftfahrtClasses.Vector(0, 0);
+            this.position = new LuftfahrtClasses.Vector(480, 400);
             this.velosity = new LuftfahrtClasses.Vector(0, 0);
-            this.velosity.random(480, 400);
+            this.velosity.random(100, 150);
         }
         move(_timeslice) {
             //console.log("Balloon move");

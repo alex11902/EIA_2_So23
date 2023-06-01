@@ -6,9 +6,9 @@ namespace LuftfahrtClasses {
     
     constructor(_size: number){
         console.log("Balloon constructor");
-        this.position = new Vector(0,0);
+        this.position = new Vector(480, 400);
         this.velosity = new Vector(0,0);
-        this.velosity.random (480,400);
+        this.velosity.random (100,150);
     }
     move(_timeslice: number): void{
         //console.log("Balloon move");
@@ -22,6 +22,8 @@ namespace LuftfahrtClasses {
   } else if (this.position.y > 200) {
     this.position.y = 200;
   }
+
+  
   // Begrenzung auf Canvas-Breite
   if (this.position.x < 0) {
     this.position.x = 0;

@@ -6,35 +6,43 @@ var LuftfahrtClasses;
         velosity;
         size;
         constructor(_size) {
-            console.log("Paraglider constructor");
+            // console.log("Paraglider constructor");
+            this.position = new LuftfahrtClasses.Vector(0, 0);
+            this.velosity = new LuftfahrtClasses.Vector(0, 0);
+            this.velosity.random(100, 200);
+            this.size = _size;
         }
         move(_timeslice) {
-            console.log("Paraglider move");
+            // console.log("Paraglider move");
+            let Startpoint = new LuftfahrtClasses.Vector(this.velosity.x, this.velosity.y);
+            let Endpoint = new LuftfahrtClasses.Vector(this.velosity.x, this.velosity.y);
+            Startpoint.scale(_timeslice);
+            this.position.add(Startpoint);
         }
         draw() {
-            console.log("Paraglider draw");
-            // Farben für den Fallschirmflieger festlegen
-            const parachuteColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-            const bodyColor = "#FFFF00"; // Gelb
-            // Größe des Fallschirmflieger festlegen
-            const paragliderWidth = 40;
-            const paragliderHeight = 40;
-            LuftfahrtClasses.crc2.save();
-            // Fallschirm zeichnen
-            LuftfahrtClasses.crc2.fillStyle = parachuteColor;
+            //console.log("Paraglider draw");
+            // Paraglider
             LuftfahrtClasses.crc2.beginPath();
-            LuftfahrtClasses.crc2.arc(this.position.x, this.position.y, paragliderWidth / 2, 0, Math.PI * 2);
-            LuftfahrtClasses.crc2.closePath();
+            LuftfahrtClasses.crc2.arc(this.position.x, this.position.y, 15, Math.PI, Math.PI * 2);
+            LuftfahrtClasses.crc2.fillStyle = "blue";
             LuftfahrtClasses.crc2.fill();
-            // Körper zeichnen
-            LuftfahrtClasses.crc2.fillStyle = bodyColor;
+            LuftfahrtClasses.crc2.closePath();
+            // Seile
             LuftfahrtClasses.crc2.beginPath();
-            LuftfahrtClasses.crc2.moveTo(this.position.x, this.position.y - paragliderHeight / 2);
-            LuftfahrtClasses.crc2.lineTo(this.position.x - paragliderWidth / 2, this.position.y + paragliderHeight / 2);
-            LuftfahrtClasses.crc2.lineTo(this.position.x + paragliderWidth / 2, this.position.y + paragliderHeight / 2);
+            LuftfahrtClasses.crc2.moveTo(this.position.x - 15, this.position.y);
+            LuftfahrtClasses.crc2.lineTo(this.position.x - 5, this.position.y + 40);
+            LuftfahrtClasses.crc2.moveTo(this.position.x + 15, this.position.y);
+            LuftfahrtClasses.crc2.lineTo(this.position.x + 5, this.position.y + 40);
+            LuftfahrtClasses.crc2.strokeStyle = "black";
+            LuftfahrtClasses.crc2.lineWidth = 1;
+            LuftfahrtClasses.crc2.stroke();
             LuftfahrtClasses.crc2.closePath();
+            // Körper
+            LuftfahrtClasses.crc2.beginPath();
+            LuftfahrtClasses.crc2.rect(this.position.x - 5, this.position.y + 20, 10, 30);
+            LuftfahrtClasses.crc2.fillStyle = "yellow";
             LuftfahrtClasses.crc2.fill();
-            LuftfahrtClasses.crc2.restore();
+            LuftfahrtClasses.crc2.closePath();
         }
     }
     LuftfahrtClasses.Paraglider = Paraglider;

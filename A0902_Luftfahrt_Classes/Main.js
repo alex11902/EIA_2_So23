@@ -26,14 +26,14 @@ var LuftfahrtClasses;
         background = LuftfahrtClasses.crc2.getImageData(0, 0, LuftfahrtClasses.crc2.canvas.width, LuftfahrtClasses.crc2.canvas.height);
         LuftfahrtClasses.crc2.putImageData(background, 0, 0);
         console.log(drawStaticObjects);
-        let hotairballoon = new LuftfahrtClasses.HotAirBalloon(1);
+        let hotairballoon = new LuftfahrtClasses.HotAirBalloon(4);
         console.log(hotairballoon);
-        LuftfahrtClasses.createHotairballoons(1);
+        LuftfahrtClasses.createHotairballoons(4);
         LuftfahrtClasses.HotAirBalloons.push(hotairballoon);
-        /*   let paraglider: Paraglider = new Paraglider(5);
-                  console.log(insect)
-                    createParaglider(1);
-                    Paragliders.push(paraglider);   */
+        let paraglider = new LuftfahrtClasses.Paraglider(5);
+        console.log(paraglider);
+        LuftfahrtClasses.createParagliders(1);
+        LuftfahrtClasses.Paragliders.push(paraglider);
         let insect = new LuftfahrtClasses.Insect(1);
         console.log(insect);
         LuftfahrtClasses.createInsects(5);
@@ -276,5 +276,6 @@ var LuftfahrtClasses;
             insect.draw();
         }
     }
+    LuftfahrtClasses.update = update;
 })(LuftfahrtClasses || (LuftfahrtClasses = {}));
 //# sourceMappingURL=Main.js.map

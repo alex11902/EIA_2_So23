@@ -32,14 +32,15 @@ namespace LuftfahrtClasses {
      crc2.putImageData(background, 0,0);
      console.log(drawStaticObjects);
 
-      let hotairballoon: HotAirBalloon = new HotAirBalloon(1);  
+      let hotairballoon: HotAirBalloon = new HotAirBalloon(4);  
           console.log(hotairballoon)
-            createHotairballoons(1);
+            createHotairballoons(4);
             HotAirBalloons.push(hotairballoon);   
-/*   let paraglider: Paraglider = new Paraglider(5);  
-          console.log(insect)
-            createParaglider(1);
-            Paragliders.push(paraglider);   */  
+   let paraglider: Paraglider = new Paraglider(5);  
+          console.log(paraglider)
+            createParagliders(1);
+            Paragliders.push(paraglider);   
+            
      let insect: Insect = new Insect(1);
             console.log(insect)
             createInsects(5);
@@ -326,7 +327,7 @@ namespace LuftfahrtClasses {
     }
   }
   
-  function update(): void {
+ export function update(): void {
     crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
     crc2.putImageData(background, 0,0);
 

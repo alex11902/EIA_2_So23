@@ -30,6 +30,7 @@ namespace LuftfahrtClasses {
   } else if (this.position.x > 820) {
     this.position.x = 820;
   }
+
 }
     draw():void{
         //console.log("Balloon draw"); // Ballon

@@ -5,7 +5,7 @@ namespace LuftfahrtClasses {
     size: number;
     
     constructor(_size: number){
-        console.log("Insect constructor");
+        //console.log("Insect constructor");
         this.position = new Vector(0,0);
         this.velosity = new Vector(0,0);
         this.velosity.random (100,200);

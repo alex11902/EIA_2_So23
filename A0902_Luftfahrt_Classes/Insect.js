@@ -6,7 +6,7 @@ var LuftfahrtClasses;
         velosity;
         size;
         constructor(_size) {
-            console.log("Insect constructor");
+            //console.log("Insect constructor");
             this.position = new LuftfahrtClasses.Vector(0, 0);
             this.velosity = new LuftfahrtClasses.Vector(0, 0);
             this.velosity.random(100, 200);
